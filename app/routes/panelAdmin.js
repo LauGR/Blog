@@ -1,7 +1,7 @@
     const permissions = require('../../config/permissions');
     const multer = require('multer');
     const fs = require('fs');
-    const voyage = require('../models/voyage')
+    const voyage = require('../models/articles')
     const upload = multer({
         dest: 'public/images/'
     })

@@ -1,4 +1,4 @@
-const voyage = require('../models/voyage');
+const voyage = require('../models/articles');
 
 
 module.exports = (app, passport) => {

@@ -23,9 +23,6 @@ const dotenv = require('dotenv').load();
 const index = require ('./app/routes/index');
 const connexion = require ('./app/routes/connexion');
 const panelAdmin = require ('./app/routes/panelAdmin');
-const partner = require('./app/routes/partner');
-const contact = require('./app/routes/contact');
-const mentions = require('./app/routes/mentions');
 const error404 = require('./app/routes/error404');
 
 
@@ -66,9 +63,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 index(app , passport);
 connexion(app, passport);
 panelAdmin(app, passport);
-partner(app, passport);
-contact(app, passport);
-mentions(app , passport);
 error404(app,passport);
 
 
