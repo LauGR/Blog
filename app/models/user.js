@@ -7,9 +7,7 @@ var userSchema = mongoose.Schema({
 
     local: {
         nom: String,
-        prenom: String,
-        date: Date,
-        telephone: Number,
+        prenom: String,      
         email: String,
         password: String,
         role: {
@@ -43,4 +41,4 @@ userSchema.methods.isAdmin = function() {
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema); 
