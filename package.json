@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "githttps://github.com/alekzxander/projectTitan.git"
+    "url": "githttps://github.com/LauGR/Blog.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alekzxander/projectTitan/issues"
+    "url": "https://github.com/LauGR/Blogissues"
   },
-  "homepage": "https://github.com/alekzxander/projectTitan#readme",
+  "homepage": "https://github.com/LauGR/Blog#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
