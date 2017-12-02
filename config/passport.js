@@ -100,10 +100,8 @@ module.exports = function (passport) {
                         role: req.body.role;
                         newUser.roles = ['admin'];
                         newUser.roles = ['user'];
-                        newUser.local.telephone = telephone;
                         newUser.local.nom = nom;
                         newUser.local.prenom = prenom;
-                        newUser.local.date = date;
                         newUser.local.email = email;
                         newUser.local.password = newUser.generateHash(password);
 

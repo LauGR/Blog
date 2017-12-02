@@ -1,30 +1,15 @@
-# projectTitan
+# Blog
 
-J'ai installé toutes les dépendances et bootstrap aussi que la config nécessaire pour faire tourner les fichiers css
-N'hesitez pas à noter les modules rajoutés
+Examen Final Simplon 
 
-#Json ok faire un npm install
-Modules installés : 
-# express
-# ejs
-# nodemon(deja configuré dans le json/ Utiliser npm start pour demarrer le projet)
-# bootstrap
-# mongoose
-# passport
-# passport-local
-# passport-facebook
-# passport-twitter
-# passport-google-oauth
-# connect-flash
-# bcrypt-nodejs
-# morgan
-# body-parser
-# cookie-parser
-# method-override
-# express-session
+Techno utilisées : Nodejs,MongoDB,Mongoose,CSS/Bootstrap
+
+Moteur de template : EJS 
+
+Les dépendances : 
+
+EJS
+Mongoose
+MongoDB
 
 
-#dossier
--Public(Ajouter votre css);
--images
--views(Ajouter vos fichiers ejs)

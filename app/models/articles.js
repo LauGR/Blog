@@ -8,4 +8,4 @@ let articlesSchema = new mongoose.Schema ({
 })
 
 let articles = mongoose.model('articles', articlesSchema)
-module.exports = articles;    
+module.exports = articles; 
