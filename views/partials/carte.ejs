@@ -1,0 +1,50 @@
+<div class="container-fluid d-none d-lg-block d-xl-none">
+    <div class="card-content">
+
+        <h2 class="text-center voyageTitre">Notre sélection du moment</h2>
+
+        <div class="row carteVoyage">
+            <% mesVoyages.forEach((voyages)=>{ %>
+                <div class="col-md-4">
+                    <div class="carte">
+                        <img src="images/<%= voyages.img %>" class="img-responsive" alt="">
+                        <div class="ville">
+                            <h1>
+                                <%= voyages.name %>
+                            </h1>
+                        </div>
+                        <div class="date">
+
+                            <h3>Voyage de
+                                <%= voyages.sejour %> jours !</h3>
+                            <p>
+
+                                <%= voyages.dateA %> au
+                                    <%= voyages.dateR %>
+                            </p>
+
+                        </div>
+                        <div class="details">
+                            <p>
+                                <%= voyages.preview %>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="voyage/<%= voyages.url %>" class="btn btn-details btn-lg">Decouvrir</a>
+
+                            </div>
+                            <div class="col-md-6">
+                                <a href="/contact" class="btn btn-warning btn-lg text-center">Contactez-nous</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <%  }); %>
+        </div>
+    </div>
+</div>
