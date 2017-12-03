@@ -1,7 +1,7 @@
     const permissions = require('../../config/permissions');
     const multer = require('multer');
     const fs = require('fs');
-    const article = require('../models/article')
+    const voyage = require('../models/articles')
     const upload = multer({
         dest: 'public/images/'
     })
@@ -104,9 +104,9 @@
                                 //delete temp file
                                 fs.unlink(tmp_path);
                                 console.log('Ca marche toujours')
-                        })
+                            },
                             res.redirect('/dashbord')
-                        })
+                        )
                     .catch(err => {
                         res.status(400);
                     });

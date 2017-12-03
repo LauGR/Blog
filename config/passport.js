@@ -77,10 +77,8 @@ module.exports = function (passport) {
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
         var roles = req.body.roles;
-        var telephone = req.body.telephone;
         var nom = req.body.nom;
         var prenom = req.body.prenom;
-        var date = req.body.date;
         // asynchronous
         process.nextTick(function () {
             // if the user is not already logged in:
@@ -102,10 +100,8 @@ module.exports = function (passport) {
                         role: req.body.role;
                         newUser.roles = ['admin'];
                         newUser.roles = ['user'];
-                        newUser.local.telephone = telephone;
                         newUser.local.nom = nom;
                         newUser.local.prenom = prenom;
-                        newUser.local.date = date;
                         newUser.local.email = email;
                         newUser.local.password = newUser.generateHash(password);
 
