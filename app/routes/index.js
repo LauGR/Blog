@@ -1,4 +1,4 @@
-const voyage = require('../models/voyage');
+const article = require('../models/article');
 
 
 module.exports = (app, passport) => {
@@ -6,30 +6,30 @@ module.exports = (app, passport) => {
     // BASIC ROUTE (INDEX)
 
     app.get('/', (req, res) => {
-        voyage.find((err, voyages) => {
+        article.find((err, articles) => {
             res.render('index', {
-                mesVoyages: voyages,
-                voyagesMenu: voyages
+                mesarticles: articles,
+                articlesMenu: articles
             });
         });
     });
 
 
-    app.use('/voyage/:url', (req, res, next) => {
-        voyage.find({}, (err, voyagesMenu) => {
-            req.voyagesMenu = voyagesMenu;
+    app.use('/article/:url', (req, res, next) => {
+        article.find({}, (err, articlesMenu) => {
+            req.articlesMenu = articlesMenu;
             next();
         })
     })
 
 
-    app.get('/voyage/:url', ((req, res) => {
-        voyage.find((err, voyages) => {
-            res.render('voyage', {
-                voyagesMenu: req.voyagesMenu,
-                voyage: req.params.url,
-                mesVoyages: voyages.filter((voyage) => {
-                    return voyage.url == req.params.url
+    app.get('/article/:url', ((req, res) => {
+        article.find((err, articles) => {
+            res.render('article', {
+                articlesMenu: req.articlesMenu,
+                article: req.params.url,
+                mesarticles: articles.filter((article) => {
+                    return article.url == req.params.url
                 })[0]
             })
         })

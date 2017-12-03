@@ -39,14 +39,14 @@
                         <a href="/">Accueil</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nos voyages
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nos articles
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <% voyagesMenu.forEach((voyages)=>{ %>
+                            <% articlesMenu.forEach((articles)=>{ %>
                                 <li>
-                                    <a href="/voyage/<%= voyages.url %>">
-                                        <%= voyages.name %>
+                                    <a href="/voyage/<%= articles.url %>">
+                                        <%= articles.name %>
                                     </a>
                                 </li>
                                 <%  }); %>
@@ -78,7 +78,6 @@
 
     <%- defineContent('content') %>
         <%- defineContent('carou') %>
-            <%- defineContent('partenaires') %>
                 <%- defineContent('voyage') %>
                     <%- defineContent('mentions') %>
 

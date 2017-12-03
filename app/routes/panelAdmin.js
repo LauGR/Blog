@@ -104,7 +104,7 @@
                                 //delete temp file
                                 fs.unlink(tmp_path);
                                 console.log('Ca marche toujours')
-                            }
+                        })
                             res.redirect('/dashbord')
                         })
                     .catch(err => {
@@ -112,6 +112,6 @@
                     });
 
                 })
-        })
+        }
 
-    }
+    
