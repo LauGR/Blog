@@ -3,19 +3,15 @@
     .signup {
         /* padding-top: 77px; */
         padding-bottom: 9%;
-        background: #06162D;
+        background: #000;
     }
 
     .signup h1 {
-        color: #f1b244;
+        color: #fff;
     }
 
     .signup label {
-        color: #f1b244;
-    }
-
-    .signup a {
-        color: #f1b244;
+        color: #fff;
     }
 
     .signup p {
@@ -31,23 +27,19 @@
     .login {
         padding-top: 161px;
         padding-bottom: 20%;
-        background: #06162D;
+        background: #000;
     }
 
-    .login a {
-        color: #f1b244;
-    }
-
-    .login p {
+   .login p {
         color: #fff;
     }
 
     .login h1 {
-        color: #f1b244;
+        color: #fff;
     }
 
     .login label {
-        color: #f1b244;
+        color: #fff;
     }
 
     .login hr {
