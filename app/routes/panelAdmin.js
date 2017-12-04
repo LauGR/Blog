@@ -8,14 +8,19 @@
 
     module.exports = (app, passport) => {
 
+        // PROFIL ADMIN 
+
+        app.get('/dashbord/profil',permissions.can('access admin page'), (req, res) => {
+            res.render('profil',{layout:'layoutAdmin'})
+        })
 
 
         // PANEL ADMIN 
 
         app.get('/dashbord', permissions.can('access admin page'), (req, res) => {
-            article.find((err, carte) => {
+            article.find((err, article) => {
                 res.render('dashbord', {
-                    articles: carte,
+                    articles: article,
                     layout: 'layoutAdmin'
                 })
 
@@ -30,8 +35,8 @@
             })
         })
 
-        app.get('/dashbord/article', permissions.can('access admin page'), (req, res) => {
-            res.render('article', {
+        app.get('/dashbord/articles', permissions.can('access admin page'), (req, res) => {
+            res.render('createarticle', {
                 layout: 'layoutAdmin'
             });
         });
@@ -40,7 +45,7 @@
         // CREATE ARTICLE PANEL ADMIN
 
 
-        app.post('/dashbord/article', permissions.can('access admin page'), (req, res) => {
+        app.post('/dashbord/articles', permissions.can('access admin page'), (req, res) => {
 
             let myData = new article({
                 name: req.body.name,
@@ -58,7 +63,7 @@
                     //delete temp file
                     fs.unlink(tmp_path);
                     src.on('end', () => {
-                        res.redirect("/dashbord/article");
+                        res.redirect("/dashbord/articles");
                     });
                     src.on('error', (err) => {
                         res.render('error');

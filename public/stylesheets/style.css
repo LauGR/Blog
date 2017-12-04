@@ -1,4 +1,8 @@
-      /*================ SIGNUP ======================*/
+     body {
+         background: url('../images/header');
+     }
+     
+     /*================ SIGNUP ======================*/
 
     .signup {
         /* padding-top: 77px; */
@@ -50,8 +54,8 @@
     /* ========== ERROR 404 ================= */
 
     .error {
-        background: #06162D;
-        color: #E1A10D;
+        background: #000;
+        color: #fff;
         padding: 23%;
     }
 
