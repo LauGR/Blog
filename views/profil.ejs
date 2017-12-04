@@ -1,4 +1,4 @@
-<%- contentFor('profile') %>
+<%- contentFor('profil') %>
 
     <%- contentFor('titre') %>
         <h4 class="text-center">Mon Profil</h4>
@@ -20,7 +20,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                    user.forEach
+                            <% user.forEach((obj)=>{ %>
+                                <tr>
+                                    <td>
+                                        <%=obj.nom%>
+                                    </td>
+                                    <td>
+                                            <%=obj.prenom%>
+                                        </td>
+                                        <td>
+                                                <%=obj.email%>
+                                            </td>
+                                            <td>
+                                                    <%=obj.nom%>
+                                                </td>
+                                                <td>
+                                                        <%=obj.nom%>
+                                                    </td>
+                                </tr>
+                                <% }) %>
                         </tbody>
                     </table>
                 </div>

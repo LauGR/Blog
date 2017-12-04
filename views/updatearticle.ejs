@@ -1,46 +1,32 @@
 <%- contentFor('titre')%>
     <h4 class="text-center">
-        <%= card.name %>
+        <%= article.name %>
     </h4>
     <%- contentFor('menu')%>
 
-        <form action="/updatecard/<%= card._id%>" enctype="multipart/form-data" method="POST">
+        <form action="/updatearticle/<%= article._id%>" enctype="multipart/form-data" method="POST">
 
-            <input type="file" name="img" class='btn btn-primary' value="<%= card.img %>">
-            <input type="text" name="img" value="<%= card.img %>" readonly>
+            <input type="file" name="img" class='btn btn-primary' value="<%= article.img %>">
+            <input type="text" name="img" value="<%= article.img %>" readonly>
 
             <div class="ville">
                 <div class="form-group">
-                    <label>Titre</label>
-                    <input type="put" class="form-control" name="name" value="<%= card.name%>">
+                    <label>Nom</label>
+                    <input type="put" class="form-control" name="name" value="<%= article.name%>">
                 </div>
-            </div>
-            <div class="form-group">
-                <label> URL</label>
-                <input type="text" class="form-control" name="url" value="<%= card.url%>">
-            </div>
-            <div class="form-group">
-                <label>Date Aller</label>
-                <input type="date" class="form-control" name="dateA" value="<%= card.dateA%>">
-                <label>Date Retour</label>
-                <input type="date" class="form-control" name="dateR" value="<%= card.dateR%>">
-            </div>
-            <div class="form-group">
-                <label>Nombres de Jours</label>
-                <input type="number" class="form-control" name="sejour" value="<%= card.sejour%>">
             </div>
 
             <div class="form-group">
-                <label for="descriptif">Descriptif de la Carte</label>
+                <label for="descriptif">Descriptif de l'article</label>
                 <textarea class="form-control" id="" cols="30" name="preview" maxlength="190" rows="5">
-                    <%= card.preview%>
+                    <%= article.preview%>
                 </textarea>
 
             </div>
             <div class="form-group">
                 <label for="descriptif">Résumé du voyage</label>
                 <textarea class="form-control" id="" cols="30" name="text" rows="5">
-                    <%= card.text%>
+                    <%= article.text%>
                 </textarea>
 
             </div>
