@@ -21,6 +21,7 @@ const dotenv = require('dotenv').load();
 
 // Set up the all routes 
 const index = require ('./app/routes/index');
+const articles = require('./app/routes/articles')
 const connexion = require ('./app/routes/connexion');
 const panelAdmin = require ('./app/routes/panelAdmin');
 const error404 = require('./app/routes/error404');
@@ -60,6 +61,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes
 index(app , passport);
+articles(app,passport);
 connexion(app, passport);
 panelAdmin(app, passport);
 error404(app,passport);

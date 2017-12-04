@@ -7,6 +7,17 @@ const upload = multer({
     dest: 'public/images/'
 })
 module.exports = (app, passport) => {
+    
+    // PROFIL ADMIN 
+app.get('/dashbord/profil', permissions.can('access admin page'), (req, res) => {
+    user.find((err, user) => {
+        res.render('profil', {
+            user: user,
+            layout: 'layoutAdmin'
+        })
+    })
+})
+    
     // PANEL ADMIN 
     app.get('/dashbord', permissions.can('access admin page'), (req, res) => {
         article.find((err, article) => {
@@ -28,18 +39,15 @@ module.exports = (app, passport) => {
                 {layout: 'layoutAdmin'
             });
     });
-// PROFIL ADMIN 
-app.get('/dashbord/profil', permissions.can('access admin page'), (req, res) => {
-    user.find((err, user) => {
-        res.render('profil', {
-            user: user,
-            layout: 'layoutAdmin'
-        })
-    })
-})
+
+
 // CREATE ARTICLE PANEL ADMIN
-app.post('/dashbord/article', permissions.can('access admin page'), (req, res) => {
+app.post('/dashbord/article', permissions.can('access admin page'),upload.single('img'), (req, res) => {
+    var fileToUpload = req.file;
+    var target_path = 'public/images/' + fileToUpload.originalname;
+    var tmp_path = fileToUpload.path;
     let myData = new article({
+        img: fileToUpload.originalname,
         title: req.body.title,
         date: req.body.date,
         content: req.body.content
@@ -73,26 +81,49 @@ app.get('/updatearticle/:id', permissions.can('access admin page'), (req, res) =
         })
     })
 })
-app.post('/updatearticle/:id', permissions.can('access admin page'), (req, res) => {
+app.post('/updatearticle/:id', permissions.can('access admin page'),upload.single('img'), (req, res) => {
+    // Create Var for img
+    let fileToUpload = req.file;
+    let target_path;
+    let tmp_path;
+    let img_path;
+    if (fileToUpload != undefined || fileToUpload != null) {
+        console.log('file est defini')
+        target_path = 'public/images/' + fileToUpload.originalname;
+        tmp_path = fileToUpload.path;
+        img_path = fileToUpload.originalname;
+
+    } else {
+        console.log('pas ok')
+        img_path = req.body.img;
+    }
     article.findByIdAndUpdate(req.params.id, {
         $set: {
             title: req.body.title,
             date: req.body.date,
-            content: req.body.content
+            content: req.body.content,
+            img: img_path
         }
     }, {
         new: true
     }, (err, article) => {
         article.save().then(item => {
-                    //delete temp file
-                    fs.unlink(tmp_path);
-                    console.log('Ca marche toujours')
-                },
-                res.redirect('/dashbord')
-            )
-            .catch(err => {
-                res.status(400);
-            });
-    })
+            // console.log('Ca marche')
+            if (fileToUpload != undefined || fileToUpload != null) {
+                let src = fs.createReadStream(tmp_path);
+                let dest = fs.createWriteStream(target_path);
+                src.pipe(dest);
+                //delete temp file
+                fs.unlink(tmp_path);
+                console.log('Ca marche toujours')
+            }
+            res.redirect('/dashbord')
+        })
+        .catch(err => {
+            res.status(400);
+        });
+
 })
+})
+
 }
