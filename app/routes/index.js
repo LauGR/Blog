@@ -6,29 +6,29 @@ module.exports = (app, passport) => {
     // BASIC ROUTE (INDEX)
 
     app.get('/', (req, res) => {
-        article.find((err, articles) => {
+        article.find((err, article) => {
             res.render('index', {
-                mesarticles: articles,
-                articlesMenu: articles
+                mesarticle: article,
+                articleMenu: article
             });
         });
     });
 
 
-    app.use('/articles', (req, res, next) => {
-        article.find({}, (err, articlesMenu) => {
-            req.articlesMenu = articlesMenu;
+    app.use('/article', (req, res, next) => {
+        article.find({}, (err, articleMenu) => {
+            req.articleMenu = articleMenu;
             next();
         })
     })
 
 
-    app.get('/articles', ((req, res) => {
-        article.find((err, articles) => {
-            res.render('articles', {
-                articlesMenu: req.articlesMenu,
+    app.get('/article', ((req, res) => {
+        article.find((err, article) => {
+            res.render('article', {
+                articleMenu: req.articleMenu,
                 article: req.params.url,
-                mesarticles: articles.filter((article) => {
+                mesarticle: article.filter((article) => {
                     return article.url == req.params.url
                 })[0]
             })

@@ -6,11 +6,11 @@ module.exports = (app, passport) => {
     // SIGNUP 
 
     app.get('/signup', (req, res) => {
-        article.find((err, articles) => {
+        article.find((err, article) => {
             res.render('layoutSignup.ejs', {
                 layout: 'layoutSignup',
                 message: req.flash('signupMessage'),
-                articlesMenu: articles
+                articleMenu: article
             });
         })
 
