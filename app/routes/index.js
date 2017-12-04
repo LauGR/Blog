@@ -15,7 +15,7 @@ module.exports = (app, passport) => {
     });
 
 
-    app.use('/article/:url', (req, res, next) => {
+    app.use('/articles', (req, res, next) => {
         article.find({}, (err, articlesMenu) => {
             req.articlesMenu = articlesMenu;
             next();
@@ -23,9 +23,9 @@ module.exports = (app, passport) => {
     })
 
 
-    app.get('/article/:url', ((req, res) => {
+    app.get('/articles', ((req, res) => {
         article.find((err, articles) => {
-            res.render('article', {
+            res.render('articles', {
                 articlesMenu: req.articlesMenu,
                 article: req.params.url,
                 mesarticles: articles.filter((article) => {

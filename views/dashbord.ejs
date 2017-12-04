@@ -10,27 +10,27 @@
                 <table id="table" class="table table-hover table-mc-light-blue">
                     <thead>
                         <tr>
-                            <th>carte</th>
-                            <th>voyage</th>
-                            <th>supprimer</th>
-                            <th>modifier</th>
+                                <th>Date</th>
+                            <th>Article</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% voyages.forEach((carte)=>{ %>
+                        <% article.forEach((article)=>{ %>
                             <tr>
-                                <td data-title="carte">
-                                    <%=carte.dateA%>
-                                </td>
-                                <td data-title="nom">
-                                    <%=carte.name%>
-                                </td>
-                                <td data-title="link">
-                                    <a href='/card/<%= carte._id %>/delete' class="btn btn-warning btn-lg checked">supprimer</a>
+                                    <td data-title="date">
+                                            <%=article.date%>
+                                        </td>
+                                <td data-title="title">
+                                    <%=article.title%>
                                 </td>
                                 <td data-title="link">
-                                    <a href="/updatecard/<%=carte._id%>" class="btn btn-warning btn-lg">modifier</a>
+                                    <a href="/updatearticle/<%=article._id%>" class="btn btn-warning btn-lg">Modifier</a>
                                 </td>
+                                            <td data-title="link">
+                                                <a href='/article/<%= article._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
+                                            </td>
                             </tr>
 
                             <% }) %>

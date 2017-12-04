@@ -1,0 +1,32 @@
+<%- contentFor('titre') %>
+
+    <h4 class="text-center">Creation d'Article</h4>
+
+    <%- contentFor('menu') %>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form action="/dashbord/articles" enctype="multipart/form-data" method="post">
+                        <div class="form-group">
+                            <label for="titre">Titre</label>
+                            <input class="form-control input-lg" type="text" name="title" placeholder="Titre">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="date">Date</label>
+                                <input class="form-control input-lg" type="date" name="date" placeholder="Date">
+                            </div>
+                        
+                        <div class="form-group">
+                            <textarea name="content" placeholder="Résumé de l'article" class="form-control" type="text" cols="30" rows="5"></textarea>
+                        </div>
+                        <p class="text-center">
+                            <button type="submit" class="btn btn-warning btn-lg">confirmez</button>
+                        </p>
+                    </form>
+
+                </div>
+
+            </div>

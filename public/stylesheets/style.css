@@ -1,175 +1,21 @@
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
-    a {
-        color: #fff;
-    }
-
-    strong {
-        color: #ff9c00;
-    }
-
-    body {
-        position: relative;
-        overflow-x: hidden;
-        background: #fff;
-    }
-
-    header {
-        background: transparent;
-    }
-    /*-------------------------------*/
-    /*           Menu nav-bar        */
-    /*-------------------------------*/
-    /* nav dash */
-
-    .logo-responsive {
-        display: none;
-    }
-
-    .navbar {
-        margin-bottom: 0px;
-        position: none;
-    }
-
-    .navbar-default .navbar-nav>li>a {
-        color: #fff;
-        font-size: 16px;
-        text-transform: uppercase;
-    }
-
-    .navbar-default .navbar-nav>li>a:hover {
-        color: orange;
-    }
-
-    .navbar-default {
-        background: transparent;
-        z-index: 100;
-        border: none;
-    }
-
-    a {
-        color: white;
-    }
-
-    .navbar .navbar-nav {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
-
-    .navbar .navbar-collapse {
-        text-align: center;
-        padding-top: 20px;
-    }
-
-    .navbar-brand img {
-        width: 125px;
-        position: absolute;
-        margin-left: -235px;
-        margin-top: -17px;
-    }
-
-    .dropdown-menu {
-        background: #06162D;
-        min-width: 157px;
-        max-width: 157px;
-        border: none;
-        border-radius: 0px;
-    }
-
-    .dropdown-menu>li>a {
-        color: white;
-    }
-
-    .navbar-default .navbar-nav>.open>a,
-    .navbar-default .navbar-nav>.open>a:focus,
-    .navbar-default .navbar-nav>.open>a:hover {
-        color: #FFFFFF;
-        background-color: #06162D;
-    }
-    /*-------------------------------*/
-    /*           carousel             */
-    /*-------------------------------*/
-
-    .bg-02 {
-        background: url('../images/africa-head.jpg')
-    }
-
-    .bg-03 {
-        background: url('../images/usa-head.jpg')
-    }
-
-    .bg-04 {
-        background: url('../images/austra-head.jpg')
-    }
-
-    .bg-05 {
-        background: url('../images/student3.jpg')
-    }
-
-    .sh-carousel {
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        z-index: -9999999;
-    }
-
-    .sh-carousel-wrapper {
-        width: 100%;
-        height: 100%;
-        transition: transform 1.1s ease-in-out;
-        will-change: transform;
-    }
-
-    .sh-carousel-slide {
-        width: 100%;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    .sh-carousel-content {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .sh-carousel-content-title {
-        width: 100%;
-        line-height: 1.32;
-        margin: 0 auto;
-        padding: 0px 28px;
-        font-size: 3.4em;
-        font-weight: bold;
-        text-align: center;
-        color: #fff;
-        margin-top: 6em;
-        text-shadow: 1px 4px 2px #413b3b;
-    }
-    /*================ SIGNUP ======================*/
+     body {
+         background: url('../images/header');
+     }
+     
+     /*================ SIGNUP ======================*/
 
     .signup {
         /* padding-top: 77px; */
         padding-bottom: 9%;
-        background: #06162D;
+        background: #000;
     }
 
     .signup h1 {
-        color: #f1b244;
+        color: #fff;
     }
 
     .signup label {
-        color: #f1b244;
-    }
-
-    .signup a {
-        color: #f1b244;
+        color: #fff;
     }
 
     .signup p {
@@ -185,133 +31,31 @@
     .login {
         padding-top: 161px;
         padding-bottom: 20%;
-        background: #06162D;
+        background: #000;
     }
 
-    .login a {
-        color: #f1b244;
-    }
-
-    .login p {
+   .login p {
         color: #fff;
     }
 
     .login h1 {
-        color: #f1b244;
+        color: #fff;
     }
 
     .login label {
-        color: #f1b244;
+        color: #fff;
     }
 
     .login hr {
         margin-top: 30px;
         padding-top: 5px;
     }
-    /* =============== HEADER ======================*/
-
-    .container {
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-
-    .container h2 {
-        color: #06162D;
-        font-weight: bold;
-    }
-
-    .carousel {
-        margin-top: -130px;
-    }
-
-    .carousel strong {
-        color: #eea903;
-    }
-
-    .carousel-inner {
-        width: auto;
-        margin-bottom: 70px;
-    }
-
-    .carousel-inner>.item>img {
-        height: 800px;
-        width: 100%;
-    }
-
-    #intro strong {
-        color: #eea903;
-    }
-
-    #intro {
-        margin-top: 110px;
-    }
-
-    #intro h1 {
-        color: #294064;
-        font-weight: bold;
-    }
-
-    #intro p {
-        font-size: 19px;
-        font-family: 'Barlow', sans-serif;
-    }
-
-    .intro-text {
-        background: #FAF8F8;
-        margin-top: -40;
-    }
-
-    .intro-text p {
-        margin: 20px 20%;
-    }
-
-    #coupure {
-        background: url(../images/jay-ma-6290.jpg) no-repeat fixed;
-        background-size: cover;
-        transform: translate(0%, 2.25212%) translate3d(0px, 0px, 0px);
-        color: white;
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
-
-    #coupure li {
-        font-size: 20px;
-        margin-top: 5px;
-        /* color: #03152b; */
-    }
-
-    #coupure li:nth-child(1) {
-        margin-top: 40px;
-    }
-
-    #coupure p {
-        font-size: 30px;
-        margin-top: 25px;
-    }
-
-    #coupure .contact-coupure {
-        margin-top: 6%;
-    }
-
-    .p_guide {
-        font-style: italic;
-        margin-top: 15px;
-        font-size: 18px;
-    }
-
-    .titleIconList {
-        margin-bottom: 70px;
-        font-size: 34px;
-    }
-
-    #myIcon {
-        margin-top: 50px;
-    }
+    
     /* ========== ERROR 404 ================= */
 
     .error {
-        background: #06162D;
-        color: #E1A10D;
+        background: #000;
+        color: #fff;
         padding: 23%;
     }
 
@@ -319,79 +63,7 @@
         font-weight: bold;
         font-size: 40px;
     }
-    /* ========== CARTE ================= */
-
-    .carte {
-        margin: 0 auto;
-        margin-top: 40px;
-        background: #faf9f8;
-        text-align: center;
-        box-shadow: 0 6px 15px rgb(195, 188, 188);
-        height: 752px;
-    }
-
-    .carte img {
-        width: 106%;
-        margin: 0 auto;
-        z-index: 4;
-        height: 300px;
-    }
-
-    .carteVoyage {
-        margin-bottom: 60px;
-    }
-
-    .box-item {
-        background: #FAF8F8;
-        margin-top: 50px;
-    }
-
-    .box-item img {
-        height: 280px;
-    }
-
-    .box-item p {
-        line-height: 32px;
-        text-align: justify;
-        margin: 0 6%;
-    }
-
-    .box-item h2 {
-        margin: 31px 6%;
-        margin-bottom: 37px;
-    }
-
-    .date h3 {
-        color: orange;
-        letter-spacing: 0px;
-    }
-
-    .date p {
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .details p {
-        font-family: 'Roboto', sans-serif;
-        font-size: 19px;
-        height: 200px;
-        line-height: 35px;
-        padding: 0 2% 0 2%;
-        margin-top: 20px;
-    }
-
-    .btn-details {
-        text-transform: uppercase;
-        background: #04152b;
-        border: none;
-        border-radius: 0px;
-        font-size: 17px;
-        width: 160px;
-    }
-
-    .btn-details a:hover {
-        color: orange;
-    }
+    
     /* =======Itineraire=========*/
 
     .btn-group-lg>.btn,
@@ -457,65 +129,7 @@
     .itineraire-img img {
         height: 500px;
     }
-    /* ========== Partenaires ============ */
-
-    .banniere-partenaire {
-        height: 260px;
-        margin-bottom: 75px;
-        margin-top: -171px;
-        z-index: 232;
-        background: #06162D;
-    }
-
-    .card {
-        box-shadow: 0 17px 10px 0 rgba(0, 0, 0, 0.2);
-        margin: auto;
-        text-align: center;
-        margin-top: 50px;
-        width: auto;
-    }
-
-    .card-text {
-        width: 150px;
-        margin: 0 auto;
-    }
-
-    .card img {
-        height: 297px;
-    }
-
-    .title {
-        color: #06162D;
-        font-size: 18px;
-    }
-
-    .btnform {
-        text-align: center;
-        border: none;
-        outline: 0;
-        display: inline-block;
-        padding: 8px;
-        color: white;
-        background-color: #000;
-        cursor: pointer;
-        width: 100%;
-        font-size: 18px;
-    }
-
-    .partenaires a {
-        text-decoration: none;
-        font-size: 22px;
-        color: #06162D;
-    }
-
-    i {
-        margin: 7px;
-    }
-
-    .btnform:hover,
-    .partenaires a:hover {
-        opacity: 0.7;
-    }
+    
     /*=============== Admin Card ===================*/
     /* === dashbord === */
 
@@ -614,20 +228,12 @@
     /* =======FOOTER ============*/
 
     footer {
-        background-color: #06162B;
+        background-color: #000;
         color: white;
         padding: 15px;
-        margin-top: px;
     }
 
     footer a {
-        color: #fff;
-    }
-
-    .copyright,
-    .mleg,
-    .icons {
-        margin-top: 40px;
         color: #fff;
     }
 
