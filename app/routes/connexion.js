@@ -53,7 +53,7 @@ module.exports = (app, passport) => {
 
                     //redirect the user to dashboard when it's an admin
                     if (user.local.role === 'admin') {
-                        return res.redirect('/dashbord');
+                        return res.redirect('/dashboard');
                     }
                     //redirect user to the homepage for no admin user
                     return res.redirect('/');

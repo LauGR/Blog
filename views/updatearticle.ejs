@@ -4,7 +4,7 @@
     </h4>
     <%- contentFor('menu')%>
 
-        <form action="/updatearticle/<%= article._id%>" enctype="multipart/form-data" method="POST">
+        <form action="/dashboard/updatearticle/<%= article._id%>" enctype="multipart/form-data" method="POST">
 
             <input type="file" name="img" class='btn btn-primary' value="<%= article.img %>">
             <input type="text" name="img" value="<%= article.img %>" readonly>
