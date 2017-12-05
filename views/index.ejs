@@ -1,2 +1,20 @@
 <%- contentFor('index') %>
 
+<% article.forEach((article)=>{ %>
+
+   <img style="width : 200px; height : auto" src="images/<%=article.img%>" />
+   
+            <p data-title="date">
+                    <%=article.date%>
+                </p>
+        <p data-title="title">
+            <%=article.title%>
+        </p>
+      
+        <p>
+                <%=article.content%>
+        </p>
+
+
+
+    <% }) %>

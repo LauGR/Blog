@@ -8,7 +8,7 @@ module.exports = (app, passport) => {
     app.get('/', (req, res) => {
         article.find((err, article) => {
             res.render('index', {
-                mesarticle: article,
+                article: article,
                 articleMenu: article
             });
         });
