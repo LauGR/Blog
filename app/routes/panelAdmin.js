@@ -36,12 +36,12 @@ app.get('/dashboard/profil', permissions.can('access admin page'), (req, res) =>
     })
     app.get('/dashboard/createarticle', permissions.can('access admin page'), (req, res) => {
             res.render('createarticle',
-                {layout: 'layoutAdmin'
+                {layout: 'layoutAdmin',
             });
     });
 
 
-// CREATE ARTICLE PANEL ADMIN
+// CREATE article PANEL ADMIN
 app.post('/dashboard/createarticle', permissions.can('access admin page'),upload.single('img'), (req, res) => {
     var fileToUpload = req.file;
     var target_path = 'public/images/' + fileToUpload.originalname;
@@ -55,6 +55,9 @@ app.post('/dashboard/createarticle', permissions.can('access admin page'),upload
     myData
         .save()
         .then(item => {
+            var src = fs.createReadStream(tmp_path);
+            var dest = fs.createWriteStream(target_path);
+            src.pipe(dest);
             //delete temp file
             fs.unlink(tmp_path);
             src.on('end', () => {
@@ -69,7 +72,8 @@ app.post('/dashboard/createarticle', permissions.can('access admin page'),upload
                 .status(400)
         });
 });
-// UPDATE ARTICLE PANEL ADMIN
+
+// UPDATE article PANEL ADMIN
 app.get('/dashboard/updatearticle/:id', permissions.can('access admin page'), (req, res) => {
     article.find((err, article) => {
         res.render('updatearticle', {
@@ -81,6 +85,8 @@ app.get('/dashboard/updatearticle/:id', permissions.can('access admin page'), (r
         })
     })
 })
+
+
 app.post('/dashboard/updatearticle/:id', permissions.can('access admin page'),upload.single('img'), (req, res) => {
     // Create Var for img
     let fileToUpload = req.file;
