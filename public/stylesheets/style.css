@@ -399,3 +399,9 @@
     -webkit-tap-highlight-color: #0085A1;
   }
   
+
+.btn-details {
+  width: auto;
+  height: auto;
+  color : orange
+}

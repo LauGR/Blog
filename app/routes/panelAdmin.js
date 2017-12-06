@@ -118,6 +118,7 @@ app.post('/dashbord/createbrouillon', permissions.can('access admin page'), uplo
     var target_path = 'public/images/' + fileToUpload.originalname;
     var tmp_path = fileToUpload.path;
     let myData = new article({
+        _id : req.params._id,
         img: fileToUpload.originalname,
         title: req.body.title,
         date: req.body.date,

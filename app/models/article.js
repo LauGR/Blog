@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 let articleSchema = new mongoose.Schema ({
+    _id : String,
     img: String,
     title: String,  
     date : String,
