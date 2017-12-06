@@ -5,6 +5,7 @@ let articleSchema = new mongoose.Schema ({
     title: String,  
     date : String,
     content : String,
+    brouillon : {type: Boolean , default : false}
     
 })
 
