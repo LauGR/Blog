@@ -51,7 +51,6 @@ module.exports = (app, passport) => {
         // update it with hash
         req.body.password = bcrypt.hashSync(password);
 
-
         user.findByIdAndUpdate(req.user, {
             $set: {
                 "local.nom": req.body.nom,
@@ -78,8 +77,6 @@ module.exports = (app, passport) => {
                 });
 
         })
-
-
 
         user.findOne(req.user, {
 
