@@ -6,9 +6,9 @@ module.exports = (app, passport) => {
     // BASIC ROUTE (INDEX)
 
     app.get('/', (req, res) => {
-        article.find((err, article) => {
+        article.find((err, articles) => {
             res.render('index', {
-                article: article,
+                article: articles,
                 articleMenu: article
             });
         });

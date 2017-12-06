@@ -43,7 +43,8 @@ module.exports = function (passport) {
             .nextTick(function () {
                 User
                     .findOne({
-                        'local.email': email
+                        'local.email': email,
+                        // "local.password" : password,
                     }, (err, user) => {
                         // if there are any errors, return the error
                         if (err)
