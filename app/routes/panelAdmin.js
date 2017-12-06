@@ -17,7 +17,8 @@ module.exports = (app, passport) => {
             })
         })
     })
-
+    
+    // UPDATE PROFIL ADMIN
     app.get('/dashboard/updateprofil', permissions.can('access admin page'), (req, res) => {
         res.render('updateprofil', {
             user: req.user,
@@ -25,7 +26,6 @@ module.exports = (app, passport) => {
 
         })
     })
-
     app.post('/dashboard/updateprofil', permissions.can('access admin page'), upload.single('img'), (req, res) => {
       // Create let for img
       let fileToUpload = req.file;
@@ -49,7 +49,6 @@ module.exports = (app, passport) => {
               "local.nom": req.body.nom,
               "local.prenom":req.body.prenom,
               "local.email": req.body.email,
-              "local.password": req.body.password,
               "local.avatar": img_path
             
           }
@@ -85,13 +84,7 @@ module.exports = (app, passport) => {
             })
         })
     });
-    app.get('/dashboard/article/:id/delete', permissions.can('access admin page'), (req, res) => {
-        article.remove({
-            _id: req.params.id
-        }, (err, delData) => {
-            res.redirect("/dashboard");
-        })
-    })
+    
     app.get('/dashboard/createarticle', permissions.can('access admin page'), (req, res) => {
         res.render('createarticle', {
             layout: 'layoutAdmin'
@@ -181,6 +174,16 @@ module.exports = (app, passport) => {
                     res.status(400);
                 });
 
+        })
+    })
+
+    // DELETE ARTICLE PANEL ADMIN
+
+    app.get('/dashboard/article/:id/delete', permissions.can('access admin page'), (req, res) => {
+        article.remove({
+            _id: req.params.id
+        }, (err, delData) => {
+            res.redirect("/dashboard");
         })
     })
 
