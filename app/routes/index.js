@@ -14,7 +14,4 @@ module.exports = (app, passport) => {
             });
         });
     });
-
-
-
 }
