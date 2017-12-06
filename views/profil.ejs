@@ -16,38 +16,31 @@
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Email</th>
-                                <th>Mot de passe</th>
-                                <th>Ajouter</th>
                                 <th>Modifier</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <% user.
-                            forEach((user)=>{ %>
+                            <% for (i=0 ; i < user.length ; i++ ){ %>
+                             
                                 <tr>
                                     <td>
-                                        <%=user.avatar%>
+                                        <%=user[i].local.avatar%>
                                     </td>
                                     <td>
-                                        <%=user.nom%>
+                                        <%=user[i].local.nom%>
                                     </td>
                                     <td>
-                                        <%=user.prenom%>
+                                        <%=user[i].local.prenom%>
                                     </td>
                                     <td>
-                                        <%=user.email%>
+                                        <%=user[i].local.email%>
                                     </td>
-                                    <td>
-                                        <%=user.password%>
-                                    </td>
-                                    <td>
-                                        <a href="/dashboard/addprofil" class="btn btn-warning btn-lg">Ajouter</a>
-                                    </td>
+                      
                                     <td>
                                         <a href="/dashboard/updateprofil" class="btn btn-warning btn-lg">Modifier</a>
                                     </td>
                                 </tr>
-                                <% }) %>
+                                <% } %>
                         </tbody>
                     </table>
                 </div>

@@ -1,5 +1,5 @@
 const article = require('../models/article')
-
+var bcrypt = require('bcrypt-nodejs');
 
 module.exports = (app, passport) => {
 
