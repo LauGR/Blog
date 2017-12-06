@@ -1,41 +1,36 @@
-<div class="container-fluid d-none d-lg-block d-xl-none">
+<%-contentFor('article')%>
+<% article.forEach((article)=>{ %>
+    <div class="container-fluid d-none d-lg-block d-xl-none">
         <div class="article-content">
-    
+
             <h2 class="text-center voyageTitre">Mes articles</h2>
-    
+
             <div class="row article">
                 <div class="col-md-4">
                     <div class="carte">
-                            <% article.forEach((article)=>{ %>
-            
-                        <img src="/images/<%= article.img %>" class="img-responsive" alt="">
-                        <div class="ville">
+
+                            <img src="/images/<%= article.img %>" class="img-responsive" alt="">
+                            <div class="ville">
                                 <h1>
                                     <%= article.title %>
                                 </h1>
                             </div>
                             <div class="date">
-    
+
                                 <h3>
-                                    <%= article.date %></h3>
+                                    <%= article.date %>
+                                </h3>
                                 <p>
-    
-                            <div class="details">
-                                <p>
-                                    <%= article.content %>
-                                </p>
+
+                                    <div class="details">
+                                        <p>
+                                            <%= article.content %>
+                                        </p>
+                                    </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <a href="articles/<%= article.url %>" class="btn btn-details btn-lg">Read more</a>
-                            </div>
-                        </div>
                     </div>
-    
-    
-    
-    
-                    <%  }); %>
+                </div>
             </div>
         </div>
     </div>
+    <%  }); %>

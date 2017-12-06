@@ -16,82 +16,126 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header navbar-left">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-inverse">
-                    <li>
-                        <a href="/">Accueil</a>
-                    </li>
-
-                    <li>
-                        <a href="/articles">Articles</a>
-                    </li>
-
-                    <li>
-                        <a href="/login">Connexion</a>
-                    </li>
-
-                    <% if (isAuthenticated()) { %>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="/articles">Mes Articles</a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/profil">Profil</a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/comments">Commentaires</a>
-                                </li>
-                                <li>
-                                    <a href="/logout">Deconnexion</a>
-                                </li>
-                            </ul>
+    
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#">My Fucking blog</a>
+                </div>
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Accueil</a>
                         </li>
-
-                        <% } %>
-                </ul>
+    
+                        <li>
+                            <a href="/articles">Articles</a>
+                        </li>
+    
+                        <li>
+                            <a href="/login">Connexion</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
+            <!-- /.container -->
         </nav>
-    </header>
-
-    <%- defineContent('index') %>
-    <%- defineContent('articles') %>
-     
-
-
-            <footer>
-
-                <div class="container">
-                    <div class="row">
-                        <div class=" col-xs-12 col-sm-4 col-md-4">
-                            <p class="copyright text-center">&copy; Je m'en balek Team</p>
-                        </div>
-
-
-                        <div class="icons col-xs-12 col-sm-4 col-md-4">
-
-                            <p class="text-center">
-                                MADE WITH LOVE BY SIMPLON.CO
-                            </p>
-
+    
+        <!-- Page Header -->
+        <!-- Set your background image for this header on the line below. -->
+        <header class="intro-header" style="background-image: url('images/1.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>EXAM FINAL BLOG</h1>
+                            <hr class="small">
+                        <span class="subheading">MY ASS IS BAE</span>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <% article.forEach((article)=>{ %>
+                    <div class="post-preview">
+                            <img src="images/<%= article.img %>" class="img-responsive" alt="">
+                            <h2 class="post-title text-center">
+                                <%= article.title %>
+                            </h2>
+                            <h3 class="post-subtitle">
+                                <%= article.content %>
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by <a href="#">Andraser</a> <%= article.date %></p>
+                    </div>
+                    <hr>
+                    <%  }); %>
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        <li class="next">
+                            <a href="#">Older Posts &rarr;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+<%-defineContent('article') %>
+
+
+            <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; team m'en balek</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src="/javascripts/script.js"></script>
