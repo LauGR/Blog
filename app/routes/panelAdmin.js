@@ -102,6 +102,39 @@ module.exports = (app, passport) => {
     });
 
     // CREATE article PANEL ADMIN (need save draft copy)
+    app.post('/dashbord/createbrouillon', permissions.can('access admin page'), upload.single('img'), (req, res) => {
+        var fileToUpload = req.file;
+        var target_path = 'public/images/' + fileToUpload.originalname;
+        var tmp_path = fileToUpload.path;
+        let myData = new article({
+            img: fileToUpload.originalname,
+            title: req.body.title,
+            date: req.body.date,
+            content: req.body.content,
+            brouillon: true
+        });
+        
+        myData
+            .save()
+            .then(item => {
+                var src = fs.createReadStream(tmp_path);
+                var dest = fs.createWriteStream(target_path);
+                src.pipe(dest);
+                //delete temp file
+                fs.unlink(tmp_path);
+                src.on('end', () => {
+                    res.redirect("/dashboard");
+                });
+                src.on('error', (err) => {
+                    res.render('error');
+                });
+            })
+            .catch(err => {
+                res
+                    .status(400)
+            });
+    });
+
     app.post('/dashboard/createarticle', permissions.can('access admin page'), upload.single('img'), (req, res) => {
         var fileToUpload = req.file;
         var target_path = 'public/images/' + fileToUpload.originalname;
