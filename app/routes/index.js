@@ -6,10 +6,10 @@ module.exports = (app, passport) => {
     // BASIC ROUTE (INDEX)
 
     app.get('/', (req, res) => {
-        article.find((err, articles) => {
+        article.find((err, article) => {
             res.render('index', {
                 layout: 'layout',
-                article: articles,
+                article: article,
                 articleMenu: article
             });
         });

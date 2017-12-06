@@ -121,6 +121,7 @@ app.post('/dashbord/createbrouillon', permissions.can('access admin page'), uplo
         img: fileToUpload.originalname,
         title: req.body.title,
         date: req.body.date,
+        preview:req.body.preview,
         content: req.body.content,
         brouillon: true
     });
