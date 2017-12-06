@@ -1,6 +1,7 @@
 const permissions = require('../../config/permissions');
 const multer = require('multer');
 const fs = require('fs');
+const bcrypt = require('bcrypt-nodejs')
 const article = require('../models/article')
 const user = require('../models/user')
 const upload = multer({
@@ -17,7 +18,7 @@ module.exports = (app, passport) => {
             })
         })
     })
-    
+
     // UPDATE PROFIL ADMIN
     app.get('/dashboard/updateprofil', permissions.can('access admin page'), (req, res) => {
         res.render('updateprofil', {
@@ -26,53 +27,57 @@ module.exports = (app, passport) => {
 
         })
     })
+    
     app.post('/dashboard/updateprofil', permissions.can('access admin page'), upload.single('img'), (req, res) => {
-      // Create let for img
-      let fileToUpload = req.file;
-      let target_path;
-      let tmp_path;
-      let img_path;
-      if (fileToUpload != undefined || fileToUpload != null) {
-          console.log('file est defini')
-          target_path = 'public/images/' + fileToUpload.originalname;
-          tmp_path = fileToUpload.path;
-          img_path = fileToUpload.originalname;
+        // Create let for img
+        let fileToUpload = req.file;
+        let target_path;
+        let tmp_path;
+        let img_path;
+        if (fileToUpload != undefined || fileToUpload != null) {
+            console.log('file est defini')
+            target_path = 'public/images/' + fileToUpload.originalname;
+            tmp_path = fileToUpload.path;
+            img_path = fileToUpload.originalname;
 
-      } else {
-          console.log('pas ok')
-          img_path = req.body.avatar;
-      }
-      
-      user.findByIdAndUpdate(req.user, {
-          $set: {
-              
-              "local.nom": req.body.nom,
-              "local.prenom":req.body.prenom,
-              "local.email": req.body.email,
-              "local.avatar": img_path
-            
-          }
-      }, {
-          new: true
-      }, (err, user) => {
-          user.save().then(item => {
-                  // console.log('Ca marche')
-                  if (fileToUpload != undefined || fileToUpload != null) {
-                      let src = fs.createReadStream(tmp_path);
-                      let dest = fs.createWriteStream(target_path);
-                      src.pipe(dest);
-                      //delete temp file
-                      fs.unlink(tmp_path);
-                      console.log('Ca marche toujours')
-                  }
-                  res.redirect('/dashboard/profil')
-              })
-              .catch(err => {
-                  res.status(400);
-              });
+        } else {
+            console.log('pas ok')
+            img_path = req.body.avatar;
+        }
+        
+        let password = req.body.password;
+        req.body.password = bcrypt.hashSync(password);
+         
+            user.findByIdAndUpdate(req.user, {
+                $set: {
 
-      })
-  })
+                    "local.nom": req.body.nom,
+                    "local.prenom": req.body.prenom,
+                    "local.email": req.body.email,
+                    "local.avatar": img_path,
+                    "local.password" : req.body.password
+                }
+            }, {
+                new: true
+            }, (err, user) => {
+                user.save().then(item => {
+                        // console.log('Ca marche')
+                        if (fileToUpload != undefined || fileToUpload != null) {
+                            let src = fs.createReadStream(tmp_path);
+                            let dest = fs.createWriteStream(target_path);
+                            src.pipe(dest);
+                            //delete temp file
+                            fs.unlink(tmp_path);
+                            console.log('Ca marche toujours')
+                        }
+                        res.redirect('/dashboard/profil')
+                    })
+                    .catch(err => {
+                        res.status(400);
+                    });
+
+            })    
+    })
 
 
     // PANEL ADMIN 
@@ -84,7 +89,7 @@ module.exports = (app, passport) => {
             })
         })
     });
-    
+
     app.get('/dashboard/createarticle', permissions.can('access admin page'), (req, res) => {
         res.render('createarticle', {
             layout: 'layoutAdmin'
@@ -102,6 +107,7 @@ module.exports = (app, passport) => {
             title: req.body.title,
             date: req.body.date,
             content: req.body.content
+   
         });
         myData
             .save()
@@ -120,6 +126,7 @@ module.exports = (app, passport) => {
                     .status(400)
             });
     });
+
     // UPDATE ARTICLE PANEL ADMIN
     app.get('/dashboard/updatearticle/:id', permissions.can('access admin page'), (req, res) => {
         article.find((err, article) => {
