@@ -4,10 +4,10 @@ module.exports = (app, passport) => {
 
     app.get('/articles', (req, res) => {
         article.find((err, articles) => {
-            res.render('articles', {
+            res.render('articles.ejs', {
                 article: articles,
                 articleMenu: article,
-                layout: 'layout'
+                layout: 'articles'
             })
         })
     })
