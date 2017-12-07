@@ -113,6 +113,18 @@ app.get('/dashboard/createarticle', permissions.can('access admin page'), (req, 
     });
 });
 
+
+app.get('/dashboard/listearticle', permissions.can('access admin page'), (req, res) => {
+    article.find({}, function(err, article){
+        res.render('listearticle.ejs',{
+            article:article,
+            layout: 'layoutAdmin'
+        })
+    })
+
+})
+
+
 // CREATE article PANEL ADMIN (need save draft copy)
 app.post('/dashbord/createbrouillon', permissions.can('access admin page'), upload.single('img'), (req, res) => {
     var fileToUpload = req.file;
@@ -148,6 +160,137 @@ app.post('/dashbord/createbrouillon', permissions.can('access admin page'), uplo
         });
 });
 
+// listarticle
+// app.get('/dashboard/listearticlepush/:id', permissions.can('access admin page'), (req, res) => {
+//     article.find((err, article) => {
+//         res.render('listearticle', {
+//             layout: 'layoutAdmin',
+//             article: req.params.id,
+//             article: article.filter((article) => {
+//                 return article.id == req.params.id
+//             })[0]
+//         })
+//     })
+// })
+
+app.post('/dashboard/listearticlepush/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
+    // Create let for img
+    let fileToUpload = req.file;
+    let target_path;
+    let tmp_path;
+    let img_path;
+    if (fileToUpload != undefined || fileToUpload != null) {
+        console.log('file est defini')
+        target_path = 'public/images/' + fileToUpload.originalname;
+        tmp_path = fileToUpload.path;
+        img_path = fileToUpload.originalname;
+
+    } else {
+        console.log('pas ok')
+        img_path = req.body.img;
+    }
+    article.findByIdAndUpdate(req.params.id, {
+        $set: {
+            title: req.body.title,
+            date: req.body.date,
+            content: req.body.content,
+            img: img_path,
+            brouillon:false
+        }
+    }, {
+        new: true
+    }, (err, article) => {
+        article.save().then(item => {
+                // console.log('Ca marche')
+                if (fileToUpload != undefined || fileToUpload != null) {
+                    let src = fs.createReadStream(tmp_path);
+                    let dest = fs.createWriteStream(target_path);
+                    src.pipe(dest);
+                    //delete temp file
+                    fs.unlink(tmp_path);
+                    console.log('Ca marche toujours')
+                }
+                res.redirect('/dashboard/listearticle')
+            })
+            .catch(err => {
+                res.status(400);
+            });
+
+    })
+})
+
+// SAVE DRAFT COPY 
+
+app.get('/dashboard/listearticleUpdate/:id', permissions.can('access admin page'), (req, res) => {
+    article.find((err, article) => {
+        res.render('listearticleUpdate', {
+            layout: 'layoutAdmin',
+            article: req.params.id,
+            article: article.filter((article) => {
+                return article.id == req.params.id
+            })[0]
+        })
+    })
+})
+
+app.post('/dashboard/listearticleUpdate/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
+    // Create let for img
+    let fileToUpload = req.file;
+    let target_path;
+    let tmp_path;
+    let img_path;
+    if (fileToUpload != undefined || fileToUpload != null) {
+        console.log('file est defini')
+        target_path = 'public/images/' + fileToUpload.originalname;
+        tmp_path = fileToUpload.path;
+        img_path = fileToUpload.originalname;
+
+    } else {
+        console.log('pas ok')
+        img_path = req.body.img;
+    }
+    article.findByIdAndUpdate(req.params.id, {
+        $set: {
+            title: req.body.title,
+            date: req.body.date,
+            content: req.body.content,
+            img: img_path,
+        }
+    }, {
+        new: true
+    }, (err, article) => {
+        article.save().then(item => {
+                // console.log('Ca marche')
+                if (fileToUpload != undefined || fileToUpload != null) {
+                    let src = fs.createReadStream(tmp_path);
+                    let dest = fs.createWriteStream(target_path);
+                    src.pipe(dest);
+                    //delete temp file
+                    fs.unlink(tmp_path);
+                    console.log('Ca marche toujours')
+                }
+                res.redirect('/dashboard/listearticle')
+            })
+            .catch(err => {
+                res.status(400);
+            });
+
+    })
+})
+
+
+//REMOVE DRAFT COPY ARTICLE 
+
+app.get('/dashboard/listearticleSup/:id/delete' , permissions.can('access admin page'), (req, res) => {
+    article.remove({
+        _id: req.params.id
+    }, (err, delData) => {
+        res.redirect("/dashboard/listearticle");
+    })
+})
+
+
+// CREATE ARTICLE PANEL ADMIN
 app.post('/dashboard/createarticle', permissions.can('access admin page'), upload.single('img'), (req, res) => {
     var fileToUpload = req.file;
     var target_path = 'public/images/' + fileToUpload.originalname;

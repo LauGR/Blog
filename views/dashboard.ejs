@@ -17,23 +17,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% article.forEach((article)=>{ %>
+                        <% for ( let i = 0; i < article.length ; i++) { %>
+                            <% if (article[i].brouillon == false ) { %>
                             <tr>
                                     <td data-title="date">
-                                            <%=article.date%>
+                                            <%=article[i].date%>
                                         </td>
                                 <td data-title="title">
-                                    <%=article.title%>
+                                    <%=article[i].title%>
                                 </td>
                                 <td data-title="link">
-                                    <a href="/dashboard/updatearticle/<%=article._id%>" class="btn btn-warning btn-lg">Modifier</a>
+                                    <a href="/dashboard/updatearticle/<%=article[i]._id%>" class="btn btn-warning btn-lg">Modifier</a>
                                 </td>
                                             <td data-title="link">
-                                                <a href='/dashboard/article/<%= article._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
+                                                <a href='/dashboard/article/<%= article[i]._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
                                             </td>
                             </tr>
 
-                            <% }) %>
+                            <% } %>
+                            <% } %>
                     </tbody>
                 </table>
             </div>

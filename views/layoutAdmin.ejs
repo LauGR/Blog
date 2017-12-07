@@ -52,11 +52,17 @@
                         </a>
                     </li>
                     <li class="active">
-                            <a href="/dashboard/profil">
-                                <i class="ti-user"></i>
-                                <p>Profil</p>
-                            </a>
-                        </li>
+                        <a href="/dashboard/listearticle">
+                            <i class="ti-user"></i>
+                            <p>liste Article</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/dashboard/profil">
+                            <i class="ti-user"></i>
+                            <p>Profil</p>
+                        </a>
+                    </li>
                     <li class="active">
                         <a href="/logout">Deconnexion</a>
                     </li>
@@ -74,7 +80,7 @@
                             <span class="icon-bar bar3"></span>
                         </button>
 
-                            <hr>
+                        <hr>
                     </div>
                     <%- defineContent('titre') %>
                         <div class="collapse navbar-collapse">
@@ -82,9 +88,9 @@
                 </div>
             </nav>
             <%- defineContent('menu')%>
-            <%- defineContent('profil') %>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                <script src="/javascripts/paper-dashboard.js"></script>
-                <script src="/javascripts/confirmSup.js"></script>
+                <%- defineContent('profil') %>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                    <script src="/javascripts/paper-dashboard.js"></script>
+                    <script src="/javascripts/confirmSup.js"></script>
 
 </body>

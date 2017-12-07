@@ -4,21 +4,23 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         
-                        <% article.forEach((article)=>{ %>
+                    <% for ( let i = 0; i < article.length ; i++) { %>
+                        <% if (article[i].brouillon == false ) { %>
                     <div class="post-preview">
-                            <img src="images/<%= article.img %>" class="img-responsive" alt="">
+                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">
                             <h2 class="post-title text-center">
-                                <%= article.title %>
+                                <%= article[i].title %>
                             </h2>
                             <h3 class="post-subtitle">
-                                <%= article.preview %>
+                                <%= article[i].preview %>
                             </h3>
                         </a>
-                        <p class="post-meta">Posted by <a href="#">Andraser</a> <%= article.date %></p>
+                        <p class="post-meta">Posted by <a href="#">Andraser</a> <%= article[i].date %></p>
                     </div>
-                    <a href="articles/<%= article._id %>" class="btn btn-details btn-lg">Read more</a>
+                    <a href="articles/<%= article[i]._id %>" class="btn btn-details btn-lg">Read more</a>
                     <hr>
-                    <%  }); %>
+                    <%  } %>
+                    <% } %>
                     <hr>
                     <!-- Pager -->
                     <ul class="pager">
