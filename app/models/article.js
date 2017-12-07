@@ -4,8 +4,8 @@ let articleSchema = new mongoose.Schema ({
     img: String,
     title: String,  
     date : String,
-    content : String,
     preview: String,
+    content : String,
     brouillon : {type: Boolean , default : false}
     
 })
