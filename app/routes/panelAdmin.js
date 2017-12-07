@@ -46,17 +46,18 @@ module.exports = (app, passport) => {
                 img_path = req.body.avatar;
             }
 
-            var password = req.body.password;
+
 
             // update it with hash
-            req.body.password = bcrypt.hashSync(password);
+            req.body.password = bcrypt.hashSync(req.body.password);
 
             user.findByIdAndUpdate(req.user, {
                 $set: {
                     "local.nom": req.body.nom,
                     "local.prenom": req.body.prenom,
                     "local.email": req.body.email,
-                    "local.avatar": img_path
+                    "local.avatar": img_path,
+                    "local.password" : req.body.password
                     // retrieve the password field
                 }
             }, {
@@ -118,7 +119,6 @@ app.post('/dashbord/createbrouillon', permissions.can('access admin page'), uplo
     var target_path = 'public/images/' + fileToUpload.originalname;
     var tmp_path = fileToUpload.path;
     let myData = new article({
-        _id : req.params._id,
         img: fileToUpload.originalname,
         title: req.body.title,
         date: req.body.date,
@@ -156,6 +156,7 @@ app.post('/dashboard/createarticle', permissions.can('access admin page'), uploa
         img: fileToUpload.originalname,
         title: req.body.title,
         date: req.body.date,
+        preview  : req.body.preview,
         content: req.body.content
 
     });

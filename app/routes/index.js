@@ -9,6 +9,7 @@ module.exports = (app, passport) => {
         article.find((err, article) => {
             res.render('index', {
                 layout: 'layout',
+                _id : req.params.id,
                 article: article,
                 articleMenu: article
             });

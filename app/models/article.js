@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-let articleSchema = new mongoose.Schema ({
-    _id : String,
+let articleSchema = new mongoose.Schema ({    
+    _id :  String,
     img: String,
     title: String,  
     date : String,
-    content : String,
     preview: String,
+    content : String,
     brouillon : {type: Boolean , default : false}
     
 })
