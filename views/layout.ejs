@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title> Blog Final Test </title>
 </head>
-<%- defineContent('menu') %>
+
 <body>
     
         <!-- Navigation -->
@@ -52,7 +52,7 @@
     
         <!-- Page Header -->
         <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('images/1.jpg')">
+        <header class="intro-header">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -65,46 +65,14 @@
                 </div>
             </div>
         </header>
-
-        <!-- Main Content -->
-        <%- defineContent('content') %>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        
-                        <% article.forEach((article)=>{ %>
-                    <div class="post-preview">
-                            <img src="images/<%= article.img %>" class="img-responsive" alt="">
-                            <h2 class="post-title text-center">
-                                <%= article.title %>
-                            </h2>
-                            <h3 class="post-subtitle">
-                                <%= article.preview %>
-                            </h3>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#">Andraser</a> <%= article.date %></p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <a href="articles/<%= article._id %>" class="btn btn-details btn-lg">Read more</a>
-                        </div>
-                    </div>
-                    <%  }); %>
-                    <hr>
-                    <!-- Pager -->
-                    <ul class="pager">
-                        <li class="next">
-                            <a href="#">Older Posts &rarr;</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+           
+       
 
 
-<%-defineContent('article') %>
 
+
+<%- defineContent('listeArticle') %>
+<%- defineContent('myArticle') %>
 
             <!-- Footer -->
     <footer>
