@@ -7,10 +7,10 @@
                     <% for ( let i = 0; i < article.length ; i++) { %>
                         <% if (article[i].brouillon == false ) { %>
                     <div class="post-preview">
-                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">
                             <h2 class="post-title text-center">
-                                <%= article[i].title %>
-                            </h2>
+                                    <%= article[i].title %>
+                                </h2>
+                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">                           
                             <h3 class="post-subtitle">
                                 <%= article[i].preview %>
                             </h3>

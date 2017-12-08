@@ -1,4 +1,4 @@
-<%- contentFor('profil') %>
+<%- contentFor('profile') %>
 
     <%- contentFor('titre') %>
         <h4 class="text-center">Mon Profil</h4>
@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
                             <% for (i=0 ; i < user.length ; i++ ){ %>
-                             
+
                                 <tr>
                                     <td>
                                         <%=user[i].local.avatar%>
@@ -35,9 +35,9 @@
                                     <td>
                                         <%=user[i].local.email%>
                                     </td>
-                      
+
                                     <td>
-                                        <a href="/dashboard/updateprofil" class="btn btn-warning btn-lg">Modifier</a>
+                                        <a href="/dashboard/updateprofile" class="btn btn-warning btn-lg">Modifier</a>
                                     </td>
                                 </tr>
                                 <% } %>

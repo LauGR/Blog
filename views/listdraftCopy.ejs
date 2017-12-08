@@ -13,11 +13,11 @@
                             <th>Article</th>
                             <th>Modifier</th>
                             <th>Supprimer</th>
-                        
+
                         </tr>
                     </thead>
                     <tbody>
-                      
+
                         <% for ( let i = 0; i < article.length ; i++) { %>
                             <% if (article[i].brouillon == true ) { %>
                                 <tr>
@@ -30,13 +30,13 @@
                                     <td data-title="link">
                                         <a href="/dashboard/listdraftcopyupdate/<%= article[i]._id%>" class="btn btn-warning btn-lg">Modifier</a>
                                     </td>
-                                                <td data-title="link">
-                                                    <a href='/dashboard/listdraftcopysupp/<%= article[i]._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
-                                                </td>
-                                          
-                                             
+                                    <td data-title="link">
+                                        <a href='/dashboard/listdraftcopysupp/<%= article[i]._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
+                                    </td>
+
+
                                 </tr>
-                                    <% } %>
+                                <% } %>
                                     <% } %>
                     </tbody>
                 </table>
@@ -45,10 +45,3 @@
             <div style="width: 45%; display: inline-block; vertical-align: top; margin-left: 30px;">
             </div>
         </div>
-       
-
-
-
-
-
-

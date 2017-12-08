@@ -10,26 +10,26 @@ const upload = multer({
 
 module.exports = (app, passport) => {
 
-    // PROFIL ADMIN 
-    app.get('/dashboard/profil', permissions.can('access admin page'), (req, res) => {
+    // PROFILE ADMIN 
+    app.get('/dashboard/profile', permissions.can('access admin page'), (req, res) => {
         user.find((err, user) => {
-            res.render('profil', {
+            res.render('profile', {
                 user: user,
                 layout: 'layoutAdmin'
             })
         })
     })
 
-    // UPDATE PROFIL ADMIN
-    app.get('/dashboard/updateprofil', permissions.can('access admin page'), (req, res) => {
-        res.render('updateProfil', {
+    // UPDATE PROFILE ADMIN
+    app.get('/dashboard/updateprofile', permissions.can('access admin page'), (req, res) => {
+        res.render('updateProfile', {
             user: req.user,
             layout: 'layoutAdmin'
 
         })
     })
 
-    app.post('/dashboard/updateprofil', permissions.can('access admin page'), upload.single('img'), (req, res) => {
+    app.post('/dashboard/updateprofile', permissions.can('access admin page'), upload.single('img'), (req, res) => {
         // Create let for img
         let fileToUpload = req.file;
         let target_path;
@@ -66,7 +66,7 @@ module.exports = (app, passport) => {
                         fs.unlink(tmp_path);
                         console.log('Ca marche toujours')
                     }
-                    res.redirect('/dashboard/profil')
+                    res.redirect('/dashboard/profile')
                 })
                 .catch(err => {
                     res.status(400);
@@ -87,7 +87,7 @@ module.exports = (app, passport) => {
         }, (err, user) => {
             user.save()
         })
-        res.redirect('/dashboard/profil')
+        res.redirect('/dashboard/profile')
 
     })
 
