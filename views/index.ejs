@@ -1,33 +1,42 @@
-     
-        <%- contentFor('listeArticle') %>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        
-                    <% for ( let i = 0; i < article.length ; i++) { %>
-                        <% if (article[i].brouillon == false ) { %>
-                    <div class="post-preview">
+<%- contentFor('listeArticle') %>
+
+    <head>
+        <link rel="stylesheet" href="/css/iziToast.min.css">
+    </head>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <% for ( let i = 0; i < article.length ; i++) { %>
+                    <% if (article[i].brouillon == false ) { %>
+                        <div class="post-preview">
                             <h2 class="post-title text-center">
-                                    <%= article[i].title %>
-                                </h2>
-                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">                           
+                                <%= article[i].title %>
+                            </h2>
+                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">
                             <h3 class="post-subtitle">
                                 <%= article[i].preview %>
                             </h3>
-                        </a>
-                        <p class="post-meta">Posted by Team Je m'en balek le  <%= article[i].date %></p>
-                    </div>
-                    <a href="articles/<%= article[i].url%>" class="btn btn-details btn-lg">En savoir plus</a>
-                    <hr>
-                    <%  } %>
-                    <% } %>
-                    <hr>
-                    <!-- Pager -->
-                    <ul class="pager">
-                        <li class="next">
-                            <a href="#">Older Posts &rarr;</a>
-                        </li>
-                    </ul>
-                </div>
+                            </a>
+                            <p class="post-meta">Posted by Team Je m'en balek le
+                                <%= article[i].date %>
+                            </p>
+                        </div>
+                        <a href="articles/<%= article[i].url%>" class="btn btn-details btn-lg">En savoir plus</a>
+                        <hr>
+                        <%  } %>
+                            <% } %>
+                                <hr>
+                                <!-- Pager -->
+                                <ul class="pager">
+                                    <li class="next">
+                                        <a href="#">Older Posts &rarr;</a>
+                                    </li>
+                                </ul>
             </div>
         </div>
+    </div>
+
+    <script src="/js/iziToast.min.js"></script>
+    <script src="/javascripts/welcomemessage.js"></script>
