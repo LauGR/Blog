@@ -76,14 +76,14 @@ module.exports = (app, passport) => {
         })
     })
 
-    
+
 
     app.post("/dashbord/changepassword", permissions.can('access admin page'), (req, res) => {
-     
-        req.body.password = bcrypt.hashSync(req.body.password); 
+
+        req.body.password = bcrypt.hashSync(req.body.password);
         user.findByIdAndUpdate(req.user, {
             $set: {
-           "local.password":req.body.password
+                "local.password": req.body.password
 
             }
         }, {
@@ -91,10 +91,11 @@ module.exports = (app, passport) => {
         }, (err, user) => {
             user.save()
         })
-                    res.redirect('/dashboard/profil')
-                })
-              
-   
+        res.redirect('/dashboard/profil')
+
+    })
+
+
 
     // PANEL ADMIN (PERFECT TOO)
     app.get('/dashboard', permissions.can('access admin page'), (req, res) => {
@@ -159,7 +160,7 @@ module.exports = (app, passport) => {
             });
     });
 
-   
+
     app.post('/dashboard/listearticlepush/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
         // Create let for img
         let fileToUpload = req.file;
