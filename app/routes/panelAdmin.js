@@ -161,18 +161,6 @@ app.post('/dashbord/createbrouillon', permissions.can('access admin page'), uplo
 });
 
 // listarticle
-// app.get('/dashboard/listearticlepush/:id', permissions.can('access admin page'), (req, res) => {
-//     article.find((err, article) => {
-//         res.render('listearticle', {
-//             layout: 'layoutAdmin',
-//             article: req.params.id,
-//             article: article.filter((article) => {
-//                 return article.id == req.params.id
-//             })[0]
-//         })
-//     })
-// })
-
 app.post('/dashboard/listearticlepush/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
     // Create let for img
     let fileToUpload = req.file;
