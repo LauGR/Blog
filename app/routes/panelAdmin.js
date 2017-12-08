@@ -117,6 +117,7 @@ module.exports = (app, passport) => {
         let myData = new article({
             img: fileToUpload.originalname,
             title: req.body.title,
+            url :req.body.url,
             date: req.body.date,
             preview: req.body.preview,
             content: req.body.content,
@@ -151,6 +152,7 @@ module.exports = (app, passport) => {
         let myData = new article({
             img: fileToUpload.originalname,
             title: req.body.title,
+            url :req.body.url,
             date: req.body.date,
             preview: req.body.preview,
             content: req.body.content
@@ -209,6 +211,7 @@ module.exports = (app, passport) => {
         article.findByIdAndUpdate(req.params.id, {
             $set: {
                 title: req.body.title,
+                url :req.body.url,
                 date: req.body.date,
                 content: req.body.content,
                 img: img_path
