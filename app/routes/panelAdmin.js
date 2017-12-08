@@ -78,7 +78,7 @@ module.exports = (app, passport) => {
 
 // CHANGE PASSWORD FROM PROFIL ADMIN
 
-    app.post("/dashbord/changepassword", permissions.can('access admin page'), (req, res) => {
+    app.post("/dashboard/changepassword", permissions.can('access admin page'), (req, res) => {
 
         req.body.password = bcrypt.hashSync(req.body.password);
         user.findByIdAndUpdate(req.user, {
