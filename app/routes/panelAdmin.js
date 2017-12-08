@@ -22,7 +22,7 @@ module.exports = (app, passport) => {
 
     // UPDATE PROFIL ADMIN
     app.get('/dashboard/updateprofil', permissions.can('access admin page'), (req, res) => {
-        res.render('updateprofil', {
+        res.render('updateProfil', {
             user: req.user,
             layout: 'layoutAdmin'
 
@@ -180,7 +180,7 @@ module.exports = (app, passport) => {
     // UPDATE ARTICLE PANEL ADMIN
     app.get('/dashboard/updatearticle/:id', permissions.can('access admin page'), (req, res) => {
         article.find((err, article) => {
-            res.render('updatearticle', {
+            res.render('updateArticle', {
                 layout: 'layoutAdmin',
                 article: req.params.id,
                 article: article.filter((article) => {
