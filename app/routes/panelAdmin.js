@@ -51,9 +51,7 @@ module.exports = (app, passport) => {
                 "local.nom": req.body.nom,
                 "local.prenom": req.body.prenom,
                 "local.email": req.body.email,
-                "local.avatar": img_path,
-
-                // retrieve the password field
+                "local.avatar": img_path
             }
         }, {
             new: true
@@ -76,15 +74,14 @@ module.exports = (app, passport) => {
         })
     })
 
-// CHANGE PASSWORD FROM PROFIL ADMIN
+    // change password 
 
     app.post("/dashboard/changepassword", permissions.can('access admin page'), (req, res) => {
-
+        // hash password before update
         req.body.password = bcrypt.hashSync(req.body.password);
         user.findByIdAndUpdate(req.user, {
             $set: {
                 "local.password": req.body.password
-
             }
         }, {
             new: true
@@ -127,7 +124,6 @@ module.exports = (app, passport) => {
             content: req.body.content,
             brouillon: true
         });
-
         myData
             .save()
             .then(item => {
@@ -173,7 +169,6 @@ module.exports = (app, passport) => {
             target_path = 'public/images/' + fileToUpload.originalname;
             tmp_path = fileToUpload.path;
             img_path = fileToUpload.originalname;
-
         } else {
             console.log('pas ok')
             img_path = req.body.img;
@@ -233,7 +228,6 @@ module.exports = (app, passport) => {
             target_path = 'public/images/' + fileToUpload.originalname;
             tmp_path = fileToUpload.path;
             img_path = fileToUpload.originalname;
-
         } else {
             console.log('pas ok')
             img_path = req.body.img;
@@ -243,7 +237,7 @@ module.exports = (app, passport) => {
                 title: req.body.title,
                 date: req.body.date,
                 content: req.body.content,
-                img: img_path,
+                img: img_path
             }
         }, {
             new: true
@@ -263,13 +257,11 @@ module.exports = (app, passport) => {
                 .catch(err => {
                     res.status(400);
                 });
-
         })
     })
 
 
     //REMOVE DRAFT COPY ARTICLE 
-
     app.get('/dashboard/listdraftcopysupp/:id/delete', permissions.can('access admin page'), (req, res) => {
         article.remove({
             _id: req.params.id
@@ -277,7 +269,6 @@ module.exports = (app, passport) => {
             res.redirect("/dashboard/listdraftcopy");
         })
     })
-
 
     // CREATE ARTICLE PANEL ADMIN
     app.post('/dashboard/createarticle', permissions.can('access admin page'), upload.single('img'), (req, res) => {
