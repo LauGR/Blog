@@ -2,13 +2,13 @@ const article = require('../models/article')
 
 module.exports = (app, passport) => {
 
-        app.get('/articles/:id', (req, res) => {
+        app.get('/articles/:url', (req, res) => {
                     article.find((err, articles) => {
                             res.render('articles', {
-                                id: req.params.id,
+                                url: req.params.url,
                              
                                 monArticle: articles.filter((articles) => {
-                                    return articles.id == req.params.id
+                                    return articles.url == req.params.url
                                     layout: 'layout'
                                 })
                                 [0]

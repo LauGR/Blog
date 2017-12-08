@@ -7,17 +7,17 @@
                     <% for ( let i = 0; i < article.length ; i++) { %>
                         <% if (article[i].brouillon == false ) { %>
                     <div class="post-preview">
-                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">
                             <h2 class="post-title text-center">
-                                <%= article[i].title %>
-                            </h2>
+                                    <%= article[i].title %>
+                                </h2>
+                            <img src="images/<%= article[i].img %>" class="img-responsive" alt="">                           
                             <h3 class="post-subtitle">
                                 <%= article[i].preview %>
                             </h3>
                         </a>
-                        <p class="post-meta">Posted by <a href="#">Andraser</a> <%= article[i].date %></p>
+                        <p class="post-meta">Posted by Team Je m'en balek le  <%= article[i].date %></p>
                     </div>
-                    <a href="articles/<%= article[i]._id %>" class="btn btn-details btn-lg">Read more</a>
+                    <a href="articles/<%= article[i].url%>" class="btn btn-details btn-lg">En savoir plus</a>
                     <hr>
                     <%  } %>
                     <% } %>

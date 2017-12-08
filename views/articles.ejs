@@ -1,20 +1,22 @@
 <%- contentFor('myArticle') %>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-            <div class="post-preview">
-                    <img src="../images/<%= monArticle.img %>" class="img-responsive" alt="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <div class="post-preview">
                     <h2 class="post-title text-center">
                         <%= monArticle.title %>
                     </h2>
+                    <img src="../images/<%= monArticle.img %>" class="img-responsive" alt="">
                     <h3 class="post-subtitle">
                         <%= monArticle.content %>
                     </h3>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Andraser</a> <%= monArticle.date %></p>
+                    </a>
+                    <p class="post-meta">Posted by Team Je m'en balek le
+                        <%= monArticle.date %>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>

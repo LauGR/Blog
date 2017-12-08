@@ -45,6 +45,8 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css/')); // expression static for bootstrap ( in node_modules)
+app.use('/css', express.static(__dirname + '/node_modules/izitoast/dist/css/')); // load css izitoast
+app.use('/js', express.static(__dirname + '/node_modules/izitoast/dist/js/')); // load js izitoast
 app.use(express.static(__dirname + '/public'));  // search all ressources 
 app.use(expressLayouts);
 app.use(permissions.middleware());

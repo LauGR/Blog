@@ -1,5 +1,5 @@
 function del(e) {
-    if (confirm('Êtes vous sur de vouloir supprimer ce voyage ?')) {
+    if (confirm('Êtes vous sur de vouloir supprimer cet article ?')) {
         console.log('isCheck')
         console.log('confirmer')
     } else {
