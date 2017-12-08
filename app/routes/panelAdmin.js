@@ -76,7 +76,7 @@ module.exports = (app, passport) => {
         })
     })
 
-
+// CHANGE PASSWORD FROM PROFIL ADMIN
 
     app.post("/dashbord/changepassword", permissions.can('access admin page'), (req, res) => {
 
@@ -97,7 +97,7 @@ module.exports = (app, passport) => {
 
 
 
-    // PANEL ADMIN (PERFECT TOO)
+    // PANEL ADMIN 
     app.get('/dashboard', permissions.can('access admin page'), (req, res) => {
         article.find((err, article) => {
             res.render('dashboard', {
@@ -107,25 +107,14 @@ module.exports = (app, passport) => {
         })
     });
 
+    // CREATE ARTICLE OR DRAFT COPY PANEL ADMIN 
+
     app.get('/dashboard/createarticle', permissions.can('access admin page'), (req, res) => {
         res.render('createarticle', {
             layout: 'layoutAdmin'
         });
     });
 
-
-    app.get('/dashboard/listearticle', permissions.can('access admin page'), (req, res) => {
-        article.find({}, function (err, article) {
-            res.render('listearticle.ejs', {
-                article: article,
-                layout: 'layoutAdmin'
-            })
-        })
-
-    })
-
-
-    // CREATE ARTICLE OR DRAFT COPY PANEL ADMIN 
     app.post('/dashbord/createbrouillon', permissions.can('access admin page'), upload.single('img'), (req, res) => {
         var fileToUpload = req.file;
         var target_path = 'public/images/' + fileToUpload.originalname;
@@ -160,8 +149,20 @@ module.exports = (app, passport) => {
             });
     });
 
+    // LIST ARTICLE PANEL ADMIN
 
-    app.post('/dashboard/listearticlepush/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
+    app.get('/dashboard/listdraftcopy', permissions.can('access admin page'), (req, res) => {
+        article.find({}, function (err, article) {
+            res.render('listdraftcopy.ejs', {
+                article: article,
+                layout: 'layoutAdmin'
+            })
+        })
+
+    })
+
+
+    app.post('/dashboard/listdraftcopypush/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
         // Create let for img
         let fileToUpload = req.file;
         let target_path;
@@ -198,7 +199,7 @@ module.exports = (app, passport) => {
                         fs.unlink(tmp_path);
                         console.log('Ca marche toujours')
                     }
-                    res.redirect('/dashboard/listearticle')
+                    res.redirect('/dashboard/listdraftcopy')
                 })
                 .catch(err => {
                     res.status(400);
@@ -209,9 +210,9 @@ module.exports = (app, passport) => {
 
     // SAVE DRAFT COPY 
 
-    app.get('/dashboard/listearticleUpdate/:id', permissions.can('access admin page'), (req, res) => {
+    app.get('/dashboard/listdraftcopyupdate/:id', permissions.can('access admin page'), (req, res) => {
         article.find((err, article) => {
-            res.render('listearticleUpdate', {
+            res.render('listdraftcopyUpdate', {
                 layout: 'layoutAdmin',
                 article: req.params.id,
                 article: article.filter((article) => {
@@ -221,7 +222,7 @@ module.exports = (app, passport) => {
         })
     })
 
-    app.post('/dashboard/listearticleUpdate/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
+    app.post('/dashboard/listdraftcopyupdate/:id', permissions.can('access admin page'), upload.single('img'), (req, res) => {
         // Create let for img
         let fileToUpload = req.file;
         let target_path;
@@ -257,7 +258,7 @@ module.exports = (app, passport) => {
                         fs.unlink(tmp_path);
                         console.log('Ca marche toujours')
                     }
-                    res.redirect('/dashboard/listearticle')
+                    res.redirect('/dashboard/listdraftcopy')
                 })
                 .catch(err => {
                     res.status(400);
@@ -269,11 +270,11 @@ module.exports = (app, passport) => {
 
     //REMOVE DRAFT COPY ARTICLE 
 
-    app.get('/dashboard/listearticleSup/:id/delete', permissions.can('access admin page'), (req, res) => {
+    app.get('/dashboard/listdraftcopysupp/:id/delete', permissions.can('access admin page'), (req, res) => {
         article.remove({
             _id: req.params.id
         }, (err, delData) => {
-            res.redirect("/dashboard/listearticle");
+            res.redirect("/dashboard/listdraftcopy");
         })
     })
 

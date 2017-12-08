@@ -4,7 +4,7 @@
 </h4>
 <%- contentFor('menu')%>
 
-    <form action="/dashboard/listearticleUpdate/<%=article._id%>" enctype="multipart/form-data" method="POST">
+    <form action="/dashboard/listdraftcopyupdate/<%=article._id%>" enctype="multipart/form-data" method="POST">
 
         <input type="file" name="img" class='btn btn-primary' value="<%= article.img %>">
         <input type="text" name="img" value="<%= article.img %>" readonly>
@@ -30,6 +30,6 @@
        
         <button type="submit" class="btn btn-success btn-lg">Sauvegarder</button>
 
-        <button formaction='/dashboard/listearticlepush/<%=article._id%>' type="submit"class="btn btn-success btn-lg">Publier</button>
+        <button formaction='/dashboard/listdraftcopypush/<%=article._id%>' type="submit"class="btn btn-success btn-lg">Publier</button>
      
     </form>

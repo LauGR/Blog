@@ -13,7 +13,6 @@
                             <th>Article</th>
                             <th>Modifier</th>
                             <th>Supprimer</th>
-                            <th>Publier</th>
                         
                         </tr>
                     </thead>
@@ -29,10 +28,10 @@
                                         <%=article[i].title%>
                                     </td>
                                     <td data-title="link">
-                                        <a href="/dashboard/listearticleUpdate/<%= article[i]._id%>" class="btn btn-warning btn-lg">Modifier</a>
+                                        <a href="/dashboard/listdraftcopyupdate/<%= article[i]._id%>" class="btn btn-warning btn-lg">Modifier</a>
                                     </td>
                                                 <td data-title="link">
-                                                    <a href='/dashboard/listearticleSup/<%= article[i]._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
+                                                    <a href='/dashboard/listdraftcopysupp/<%= article[i]._id %>/delete' class="btn btn-warning btn-lg checked">Supprimer</a>
                                                 </td>
                                           
                                              
