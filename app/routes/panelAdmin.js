@@ -104,7 +104,7 @@ module.exports = (app, passport) => {
         })
     });
 
-    // CREATE ARTICLE OR DRAFT COPY PANEL ADMIN 
+    // CREATE  DRAFT COPY PANEL ADMIN 
 
     app.get('/dashboard/createarticle', permissions.can('access admin page'), (req, res) => {
         res.render('createarticle', {
