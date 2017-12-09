@@ -50,7 +50,8 @@ app.use('/js', express.static(__dirname + '/node_modules/izitoast/dist/js/')); /
 app.use(express.static(__dirname + '/public'));  // search all ressources 
 app.use(expressLayouts);
 app.use(permissions.middleware());
-
+app.use(connect.cookieParser());
+app.use(connect.cookieSession({ secret: 'tobo!', cookie: { maxAge: 60 * 60 * 1000 }}));
 // required for passport
 app.use(session({
     secret: process.env.SECRET, // session secret 
