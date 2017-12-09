@@ -269,13 +269,26 @@ footer {
 
 /* =========== RESPONSIVE ============== */
 
-@media only screen and (min-width: 768px) {
+@media all and (min-width : 300px) and (max-width:390px ){
+  .readmore{
+    margin-left: 60px
+  }
+}
+
+
+@media all and (min-width : 400px) and (max-width:420px) {
+  .readmore{
+    margin-left: 90px
+  }
+}
+
+@media all  and (min-width: 768px) {
   .post-preview>a>.post-title {
     font-size: 36px;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media all  and (min-width: 768px) {
   .intro-header .post-heading h1 {
     font-size: 55px;
   }
@@ -284,7 +297,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media all  and (min-width: 768px) {
   .navbar-custom {
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -307,7 +320,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 1170px) {
+@media all  and (min-width: 1170px) {
   .navbar-custom {
     -webkit-transition: background-color 0.3s;
     -moz-transition: background-color 0.3s;
@@ -356,7 +369,7 @@ footer {
 }
 
 
-@media only screen and (min-width: 768px) {
+@media all  and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
@@ -364,7 +377,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media all  and (min-width: 768px) {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
     font-size: 80px;
