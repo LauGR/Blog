@@ -3,13 +3,11 @@
         <%= user.nom %>
     </h4>
     <%- contentFor('menu')%>
-
-
+    
         <form action="/dashboard/updateprofile" enctype="multipart/form-data" method="post">
 
             <input type="file" name="img" class='btn btn-primary' value="<%= user.local.avatar %>">
             <input type="text" name="img" value="<%= user.local.avatar %>" readonly>
-
 
             <div class="form-group">
                 <label>Nom</label>

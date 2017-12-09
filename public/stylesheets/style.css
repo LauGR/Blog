@@ -81,6 +81,22 @@ hr.small {
   letter-spacing: 1px;
 }
 
+/* ============= LOGIN ==============*/
+
+.login {
+  margin-top: 120px;
+}
+
+.login h1 {
+  padding-bottom: 20px;
+}
+
+/* =============== SINGUP ==============*/
+.singup .navbar-default .navbar-collapse {
+  background: #fff;
+  color: #000;
+}
+
 
 /* ================ HEADER =================== */
 
@@ -149,6 +165,64 @@ hr.small {
 }
 
 
+/* ================== FORMS ====================*/
+.floating-label-form-group {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.floating-label-form-group input,
+.floating-label-form-group textarea {
+  z-index: 1;
+  position: relative;
+  padding-right: 0;
+  padding-left: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 1.5em;
+  background: none;
+  box-shadow: none !important;
+  resize: none;
+}
+
+.floating-label-form-group label {
+  display: block;
+  z-index: 0;
+  position: relative;
+  top: 2em;
+  margin: 0;
+  font-size: 0.85em;
+  line-height: 1.764705882em;
+  vertical-align: middle;
+  vertical-align: baseline;
+  opacity: 0;
+  -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+  -moz-transition: top 0.3s ease, opacity 0.3s ease;
+  -ms-transition: top 0.3s ease, opacity 0.3s ease;
+  transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+.floating-label-form-group::not(:first-child) {
+  padding-left: 14px;
+  border-left: 1px solid #eeeeee;
+}
+
+.floating-label-form-group-with-value label {
+  top: 0;
+  opacity: 1;
+}
+
+.floating-label-form-group-with-focus label {
+  color: #0085A1;
+}
+
+form .row:first-child .floating-label-form-group {
+  border-top: 1px solid #eeeeee;
+}
+
 /* ================= ARTICLE POSTED ====================*/
 
 .post-preview>a {
@@ -208,92 +282,15 @@ hr.small {
   border-bottom-left-radius: 5px;
 }
 
-/* ============== FOOTER ============= */
 
-footer {
-  margin: 50px 0 0;
-  padding: 50px 0 65px;
-  background: #000;
-}
-
-.fa-circle {
-  color: #fff
-}
-
-.fa-twitter,
-.fa-facebook,
-.fa-github {
-  color: #000;
-}
 
 .list-inline {
   margin: 0;
   padding: 0;
 }
 
-.copyright {
-  font-size: 21px;
-  text-align: center;
-  color: #fff;
-  text-transform: capitalize;
-}
 
-.floating-label-form-group {
-  font-size: 14px;
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.floating-label-form-group input,
-.floating-label-form-group textarea {
-  z-index: 1;
-  position: relative;
-  padding-right: 0;
-  padding-left: 0;
-  border: none;
-  border-radius: 0;
-  font-size: 1.5em;
-  background: none;
-  box-shadow: none !important;
-  resize: none;
-}
-
-.floating-label-form-group label {
-  display: block;
-  z-index: 0;
-  position: relative;
-  top: 2em;
-  margin: 0;
-  font-size: 0.85em;
-  line-height: 1.764705882em;
-  vertical-align: middle;
-  vertical-align: baseline;
-  opacity: 0;
-  -webkit-transition: top 0.3s ease, opacity 0.3s ease;
-  -moz-transition: top 0.3s ease, opacity 0.3s ease;
-  -ms-transition: top 0.3s ease, opacity 0.3s ease;
-  transition: top 0.3s ease, opacity 0.3s ease;
-}
-
-.floating-label-form-group::not(:first-child) {
-  padding-left: 14px;
-  border-left: 1px solid #eeeeee;
-}
-
-.floating-label-form-group-with-value label {
-  top: 0;
-  opacity: 1;
-}
-
-.floating-label-form-group-with-focus label {
-  color: #0085A1;
-}
-
-form .row:first-child .floating-label-form-group {
-  border-top: 1px solid #eeeeee;
-}
+/* ================= BUTTONS ====================*/
 
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -316,6 +313,20 @@ form .row:first-child .floating-label-form-group {
   border: 1px solid #0085A1;
   color: white;
 }
+
+
+.btn-details {
+  width: auto;
+  height: auto;
+  color: orange
+}
+
+.readmore {
+  margin-left: 270px;
+  border: 1px solid;
+}
+
+/* ======================= ================================*/
 
 .pager {
   margin: 20px 0 0;
@@ -361,6 +372,8 @@ form .row:first-child .floating-label-form-group {
   background: #0085A1;
 }
 
+/* =============== IMAGES =========================*/
+
 img::selection {
   color: white;
   background: transparent;
@@ -371,32 +384,31 @@ img::-moz-selection {
   background: transparent;
 }
 
+/* =============== FOOTER ========================*/
 
-.btn-details {
-  width: auto;
-  height: auto;
-  color: orange
+footer {
+  margin: 50px 0 0;
+  padding: 50px 0 65px;
+  background: #000;
 }
 
-.readmore {
-  margin-left: 270px;
-  border: 1px solid;
+.copyright {
+  font-size: 21px;
+  text-align: center;
+  color: #fff;
+  text-transform: capitalize;
+}
+.fa-circle {
+  color: #fff
 }
 
-.login {
-  margin-top: 120px;
-}
-
-.login h1 {
-  padding-bottom: 20px;
-}
-
-.singup .navbar-default .navbar-collapse {
-  background: #fff;
+.fa-twitter,
+.fa-facebook,
+.fa-github {
   color: #000;
 }
 
-/* =========== Responsive ============== */
+/* =========== RESPONSIVE ============== */
 
 @media only screen and (min-width: 768px) {
   .post-preview>a>.post-title {
