@@ -1,0 +1,50 @@
+<%- contentFor('profile') %>
+
+    <%- contentFor('titre') %>
+        <h4 class="text-center">Mon Profil</h4>
+        <%- contentFor('menu')%>
+
+            <div id="demo">
+                <!-- Responsive table starts here -->
+                <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+                <div class="table-responsive-vertical shadow-z-1">
+                    <!-- Table starts here -->
+                    <table id="table" class="table table-hover table-mc-light-blue">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Modifier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (i=0 ; i < user.length ; i++ ){ %>
+
+                                <tr>
+                                    <td>
+                                        <%=user[i].local.avatar%>
+                                    </td>
+                                    <td>
+                                        <%=user[i].local.nom%>
+                                    </td>
+                                    <td>
+                                        <%=user[i].local.prenom%>
+                                    </td>
+                                    <td>
+                                        <%=user[i].local.email%>
+                                    </td>
+
+                                    <td>
+                                        <a href="/dashboard/updateprofile" class="btn btn-warning btn-lg">Modifier</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="width: 45%; display: inline-block; vertical-align: top; margin-left: 30px;">
+                </div>
+            </div>
