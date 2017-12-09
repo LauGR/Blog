@@ -3,15 +3,15 @@
     <head>
         <link rel="stylesheet" href="/css/iziToast.min.css">
     </head>
-    
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
                 <% for ( let i = 0; i < article.length ; i++) { %>
                     <% if (article[i].brouillon == false ) { %>
-                        <div class="post-preview">
-                            <h2 class="post-title text-center">
+                        <div class="post-preview text-center">
+                            <h2 class="post-title ">
                                 <%= article[i].title %>
                             </h2>
                             <img src="images/<%= article[i].img %>" class="img-responsive" alt="">
@@ -19,21 +19,17 @@
                                 <%= article[i].preview %>
                             </h3>
                             </a>
-                            <p class="post-meta">Posted by Team Je m'en balek le
+                            <p class="post-meta">Posted by
+                                <br> Team Je m'en balek
+                                <br> le
                                 <%= article[i].date %>
                             </p>
                         </div>
-                        <a href="articles/<%= article[i].url%>" class="btn btn-details btn-lg">En savoir plus</a>
-                        <hr>
+
+                        <a href="articles/<%= article[i].url%>" class=" btn btn-details readmore btn-lg">En savoir plus</a>
+
                         <%  } %>
                             <% } %>
-                                <hr>
-                                <!-- Pager -->
-                                <ul class="pager">
-                                    <li class="next">
-                                        <a href="#">Older Posts &rarr;</a>
-                                    </li>
-                                </ul>
             </div>
         </div>
     </div>
