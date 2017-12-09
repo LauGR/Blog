@@ -55,8 +55,7 @@ app.use(permissions.middleware());
 app.use(session({
     secret: process.env.SECRET, // session secret 
     resave: true,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

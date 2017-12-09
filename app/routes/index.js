@@ -1,6 +1,5 @@
 const article = require('../models/article');
 
-
 module.exports = (app, passport) => {
 
     // BASIC ROUTE (INDEX)
