@@ -53,7 +53,7 @@ app.use(permissions.middleware());
 
 // required for passport
 app.use(session({
-    secret: "Je m'en balek Team", // session secret 
+    secret: process.env.SECRET, // session secret 
     resave: true,
     saveUninitialized: true
 }));
