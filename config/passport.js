@@ -55,7 +55,7 @@ module.exports = function (passport) {
                             return done(null, false, req.flash('loginMessage', "Aucun utilisateur trouvé !"));
 
                         if (!user.validPassword(password))
-                            return done(null, false, req.flash('loginMessage', "Votre mot de passe est incorrect")); // all is well, return user
+                            return done(null, false, req.flash('loginMessage', "Votre mail ou votre mot de pass est incorrect")); // all is well, return user
                         else
                             return done(null, user);
                     });
@@ -93,7 +93,7 @@ module.exports = function (passport) {
 
                     // check to see if theres already a user with that email
                     if (user) {
-                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                        return done(null, false, req.flash('signupMessage', 'Ce mail est déjà pris.'));
                     } else {
 
                         // create the user
@@ -126,7 +126,7 @@ module.exports = function (passport) {
                         return done(err);
 
                     if (user) {
-                        return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
+                        return done(null, false, req.flash('loginMessage', 'Ce mail est déjà pris!'));
                         // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
                     } else {
                         var user = req.user;

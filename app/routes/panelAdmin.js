@@ -111,9 +111,9 @@ module.exports = (app, passport) => {
     });
 
     app.post('/dashbord/createbrouillon', permissions.can('access admin page'), upload.single('img'), (req, res) => {
-        var fileToUpload = req.file;
-        var target_path = 'public/images/' + fileToUpload.originalname;
-        var tmp_path = fileToUpload.path;
+        let fileToUpload = req.file;
+        let target_path = 'public/images/' + fileToUpload.originalname;
+        let tmp_path = fileToUpload.path;
         let myData = new article({
             img: fileToUpload.originalname,
             title: req.body.title,
@@ -126,8 +126,8 @@ module.exports = (app, passport) => {
         myData
             .save()
             .then(item => {
-                var src = fs.createReadStream(tmp_path);
-                var dest = fs.createWriteStream(target_path);
+                let src = fs.createReadStream(tmp_path);
+                let dest = fs.createWriteStream(target_path);
                 src.pipe(dest);
                 //delete temp file
                 fs.unlink(tmp_path);
@@ -146,9 +146,9 @@ module.exports = (app, passport) => {
 
     // CREATE ARTICLE PANEL ADMIN
     app.post('/dashboard/createarticle', permissions.can('access admin page'), upload.single('img'), (req, res) => {
-        var fileToUpload = req.file;
-        var target_path = 'public/images/' + fileToUpload.originalname;
-        var tmp_path = fileToUpload.path;
+        let fileToUpload = req.file;
+        let target_path = 'public/images/' + fileToUpload.originalname;
+        let tmp_path = fileToUpload.path;
         let myData = new article({
             img: fileToUpload.originalname,
             title: req.body.title,
@@ -161,8 +161,8 @@ module.exports = (app, passport) => {
         myData
             .save()
             .then(item => {
-                var src = fs.createReadStream(tmp_path);
-                var dest = fs.createWriteStream(target_path);
+                let src = fs.createReadStream(tmp_path);
+                let dest = fs.createWriteStream(target_path);
                 src.pipe(dest);
                 //delete temp file
                 fs.unlink(tmp_path);

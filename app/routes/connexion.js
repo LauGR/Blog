@@ -1,4 +1,3 @@
-const permissions = require('../../config/permissions');
 const article = require('../models/article')
 
 module.exports = (app, passport) => {
