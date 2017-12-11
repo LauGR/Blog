@@ -33,11 +33,20 @@
                     <li>
                         <a href="/">Accueil</a>
                     </li>
+                    <% if (!isAuthenticated()) { %>
+                        <li>
+                            <a href="/signup">Inscription</a>
+                        </li>
 
+                        <li>
+                            <a href="/login">Login</a>
+                        </li>
+                        <% } else {%>
+                            <li>
+                                <a href="/logout">Deconnexion</a>
+                            </li>
+                            <% }%>
 
-                    <li>
-                        <a href="/login">Connexion</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -48,9 +57,9 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                     <div class="site-heading">
-                        <h1>EXAM FINAL BLOG</h1>
+                        <h1>ÎLE DE LA REUNION </h1>
                         <hr class="small">
-                        <span class="subheading">ENJOY IT</span>
+                        <span class="subheading">Blog </span>
                     </div>
                 </div>
             </div>
