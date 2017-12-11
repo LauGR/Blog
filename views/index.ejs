@@ -1,8 +1,5 @@
 <%- contentFor('listeArticle') %>
 
-    <head>
-        <link rel="stylesheet" href="/css/iziToast.min.css">
-    </head>
 
     <div class="container">
         <div class="row">
@@ -27,7 +24,7 @@
                            
                         </div>
 
-                        <a href="articles/<%= article[i].url%>" class=" btn btn-details readmore btn-lg">En savoir plus</a>
+                        <a href="articles/<%= article[i].url%>" class=" btn btn-details readmore btn-lg hvr-pulse-shrink">En savoir plus</a>
                         <hr class="design">
                         <%  } %>
                             <% } %>
@@ -35,5 +32,3 @@
         </div>
     </div>
 
-    <script src="/js/iziToast.min.js"></script>
-    <script src="/javascripts/welcomemessage.js"></script>
