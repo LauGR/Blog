@@ -1,4 +1,3 @@
-const session = require('express-session');
 const article = require('../models/article')
 
 module.exports = (app, passport) => {

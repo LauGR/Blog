@@ -1,5 +1,5 @@
 const article = require('../models/article');
-const session = require('express-session');
+
 module.exports = (app, passport) => {
 
     // BASIC ROUTE (INDEX)

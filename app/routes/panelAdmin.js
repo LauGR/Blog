@@ -1,4 +1,3 @@
-const session = require('express-session');
 const permissions = require('../../config/permissions');
 const multer = require('multer');
 const fs = require('fs');
