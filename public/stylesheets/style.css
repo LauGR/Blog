@@ -45,11 +45,12 @@ blockquote {
   font-style: italic;
 }
 
-hr.small {
-  max-width: 100px;
-  margin: 15px auto;
+hr.design {
+  max-width: 1920px;
+  margin: 60px auto;
   border-width: 4px;
-  border-color: white;
+  border-color:black;
+  
 }
 
 
@@ -105,7 +106,7 @@ hr.small {
 /* ================ HEADER =================== */
 
 .intro-header {
-  background: url('/../images/reunionbynight.jpg') no-repeat;
+  background: url('/../images/12.jpg') no-repeat;
   background-size: cover;
   height: 600px;
   margin-bottom: 100px;
@@ -169,7 +170,6 @@ hr.small {
 
 
 /* ================= ARTICLE POSTED ====================*/
-
 .post-preview>a {
   color: #333333;
 }
