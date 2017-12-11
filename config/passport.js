@@ -145,8 +145,6 @@ module.exports = function (passport) {
                 // log out before trying to create a new account, user!)
                 return done(null, req.user);
             }
-            req.session.destroy()
-
         });
 
     }))
