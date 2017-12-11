@@ -53,6 +53,7 @@ hr.design {
   
 }
 
+
 /* ====================== NAVBAR ===================*/
 
 .navbar-custom {
@@ -82,6 +83,7 @@ hr.design {
   letter-spacing: 1px;
 }
 
+
 /* ============= LOGIN ==============*/
 
 .login {
@@ -92,7 +94,9 @@ hr.design {
   padding-bottom: 20px;
 }
 
+
 /* =============== SINGUP ==============*/
+
 .singup .navbar-default .navbar-collapse {
   background: #fff;
   color: #000;
@@ -114,7 +118,6 @@ hr.design {
   padding: 100px 0 50px;
   color: white;
 }
-
 
 .intro-header .site-heading,
 .intro-header .page-heading {
@@ -164,6 +167,7 @@ hr.design {
 .intro-header .post-heading .meta a {
   color: white;
 }
+
 
 /* ================= ARTICLE POSTED ====================*/
 .post-preview>a {
@@ -231,7 +235,6 @@ hr.design {
   color: white;
 }
 
-
 .btn-details {
   width: auto;
   height: auto;
@@ -242,6 +245,7 @@ hr.design {
   margin-left: 270px;
   border: 1px solid;
 }
+
 
 /* =============== FOOTER ========================*/
 
@@ -257,6 +261,7 @@ footer {
   color: #fff;
   text-transform: capitalize;
 }
+
 .fa-circle {
   color: #fff
 }
@@ -267,28 +272,28 @@ footer {
   color: #000;
 }
 
+
 /* =========== RESPONSIVE ============== */
 
-@media all and (min-width : 300px) and (max-width:390px ){
-  .readmore{
+@media all and (min-width: 300px) and (max-width:390px) {
+  .readmore {
     margin-left: 60px
   }
 }
 
-
-@media all and (min-width : 400px) and (max-width:420px) {
-  .readmore{
+@media all and (min-width: 400px) and (max-width:420px) {
+  .readmore {
     margin-left: 90px
   }
 }
 
-@media all  and (min-width: 768px) {
+@media all and (min-width: 768px) {
   .post-preview>a>.post-title {
     font-size: 36px;
   }
 }
 
-@media all  and (min-width: 768px) {
+@media all and (min-width: 768px) {
   .intro-header .post-heading h1 {
     font-size: 55px;
   }
@@ -297,7 +302,7 @@ footer {
   }
 }
 
-@media all  and (min-width: 768px) {
+@media all and (min-width: 768px) {
   .navbar-custom {
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -320,7 +325,7 @@ footer {
   }
 }
 
-@media all  and (min-width: 1170px) {
+@media all and (min-width: 1170px) {
   .navbar-custom {
     -webkit-transition: background-color 0.3s;
     -moz-transition: background-color 0.3s;
@@ -368,8 +373,7 @@ footer {
   }
 }
 
-
-@media all  and (min-width: 768px) {
+@media all and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
@@ -377,7 +381,7 @@ footer {
   }
 }
 
-@media all  and (min-width: 768px) {
+@media all and (min-width: 768px) {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
     font-size: 80px;

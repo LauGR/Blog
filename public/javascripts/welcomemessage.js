@@ -1,5 +1,5 @@
 iziToast.info({
-    position : "topCenter",
+    position: "topCenter",
     title: 'Bonjour',
-    message: 'Bienvenue sur le blog Reunion-Culture',
+    message: 'Bienvenue sur mon blog',
 });

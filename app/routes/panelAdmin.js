@@ -117,7 +117,7 @@ module.exports = (app, passport) => {
         let myData = new article({
             img: fileToUpload.originalname,
             title: req.body.title,
-            url :req.body.url,
+            url: req.body.url,
             date: req.body.date,
             preview: req.body.preview,
             content: req.body.content,
@@ -152,7 +152,7 @@ module.exports = (app, passport) => {
         let myData = new article({
             img: fileToUpload.originalname,
             title: req.body.title,
-            url :req.body.url,
+            url: req.body.url,
             date: req.body.date,
             preview: req.body.preview,
             content: req.body.content
@@ -211,7 +211,7 @@ module.exports = (app, passport) => {
         article.findByIdAndUpdate(req.params.id, {
             $set: {
                 title: req.body.title,
-                url :req.body.url,
+                url: req.body.url,
                 date: req.body.date,
                 content: req.body.content,
                 img: img_path
@@ -238,8 +238,8 @@ module.exports = (app, passport) => {
         })
     })
 
-       // DELETE ARTICLE PANEL ADMIN
-       app.get('/dashboard/article/:id/delete', permissions.can('access admin page'), (req, res) => {
+    // DELETE ARTICLE PANEL ADMIN
+    app.get('/dashboard/article/:id/delete', permissions.can('access admin page'), (req, res) => {
         article.remove({
             _id: req.params.id
         }, (err, delData) => {
@@ -372,7 +372,5 @@ module.exports = (app, passport) => {
         })
     })
 
-    
+
 }
-    
- 
